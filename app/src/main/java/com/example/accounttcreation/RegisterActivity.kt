@@ -21,6 +21,11 @@ class RegisterActivity : AppCompatActivity() {
         var button = findViewById<Button>(R.id.SignUpButton)
         var email = findViewById<EditText>(R.id.RegisterEmail)
         var password = findViewById<EditText>(R.id.RegisterPassword)
+        val button2 = findViewById<Button>(R.id.login2)
+
+        button2.setOnClickListener {
+            onBackPressed()
+        }
         button.setOnClickListener {
             when{
                 TextUtils.isEmpty(email.text.toString().trim{it <= ' '}) -> {
