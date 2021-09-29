@@ -13,12 +13,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val userId = intent.getStringExtra("user_id")
-        val emailId = intent.getStringExtra("email)id")
+        val emailId = intent.getStringExtra("email_id")
 
 
         val emailText = findViewById<TextView>(R.id.MainEmail)
         val passwordText = findViewById<TextView>(R.id.MainPassword)
         val mainButton = findViewById<Button>(R.id.logoutButton)
+        val dataButton = findViewById<Button>(R.id.DatabaseButton)
 
         emailText.text = "User ID :: $userId"
         passwordText.text = "Email ID :: $emailId"
@@ -29,6 +30,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, LogInActivity::class.java))
             finish()
         }
+
+        dataButton.setOnClickListener {
+            startActivity(Intent(this, RecycleViewDB::class.java))
+        }
+
 
 
 
