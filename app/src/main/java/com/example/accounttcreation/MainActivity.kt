@@ -15,10 +15,12 @@ class MainActivity : AppCompatActivity() {
         val userId = intent.getStringExtra("user_id")
         val emailId = intent.getStringExtra("email)id")
 
-
         val emailText = findViewById<TextView>(R.id.MainEmail)
         val passwordText = findViewById<TextView>(R.id.MainPassword)
         val mainButton = findViewById<Button>(R.id.logoutButton)
+
+
+
 
         emailText.text = "User ID :: $userId"
         passwordText.text = "Email ID :: $emailId"

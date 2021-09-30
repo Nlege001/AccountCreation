@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import java.util.regex.Pattern
 
 class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,11 +22,38 @@ class LogInActivity : AppCompatActivity() {
         var email = findViewById<EditText>(R.id.RegisterEmail)
         var password = findViewById<EditText>(R.id.RegisterPassword)
         val button2 = findViewById<Button>(R.id.login2)
+        val forgotPasswordBTN =findViewById<Button>(R.id.forgotPassword)
 
-
+//This is for password reset
         button_register.setOnClickListener {
             startActivity(Intent(this@LogInActivity, RegisterActivity::class.java))
         }
+        forgotPasswordBTN.setOnClickListener {
+            startActivity(Intent(this@LogInActivity, ForgotPassword::class.java))
+            val view =layoutInflater.inflate(R.layout.activity_forgot_password, null)
+            val email:EditText = view.findViewById<EditText>(R.id.RegisterEmail)
+
+
+        }
+        forgotPasswordBTN.setOnClickListener {
+            when{
+                TextUtils.isEmpty(email.text.toString().trim{it <= ' '}) -> {
+                    Toast.makeText(
+                        this@LogInActivity,
+                        "Please enter email",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                TextUtils.isEmpty(email.text.toString().trim{it <=' '}) ->{
+                    (
+                        this@LogInActivity
+
+                    )
+                }
+            }
+        }
+
+
 
         button.setOnClickListener {
             when{
@@ -89,3 +117,4 @@ class LogInActivity : AppCompatActivity() {
         }
     }
 }
+
