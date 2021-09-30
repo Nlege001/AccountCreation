@@ -21,6 +21,13 @@ class LogInActivity : AppCompatActivity() {
         var email = findViewById<EditText>(R.id.LogInUserName)
         var password = findViewById<EditText>(R.id.LogInPassword)
         val button2 = findViewById<Button>(R.id.login2)
+        var resetBtn = findViewById<Button>(R.id.ResetPasswordButton)
+
+        resetBtn.setOnClickListener {
+            startActivity(Intent(this@LogInActivity, ResetPassword::class.java))
+        }
+
+
 
 
         button_register.setOnClickListener {

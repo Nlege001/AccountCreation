@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_recycle_view_db.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/indivdual_view_recycler.xml" value="0.1" />
         <entry key="app/src/main/res/layout/items_db_recycler.xml" value="0.25" />
       </map>

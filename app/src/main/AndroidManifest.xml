@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AccounttCreation">
         <activity
+            android:name=".ResetPassword"
+            android:exported="true" />
+        <activity
             android:name=".RecycleViewDB"
             android:exported="true" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LogInActivity"
             android:exported="true">
