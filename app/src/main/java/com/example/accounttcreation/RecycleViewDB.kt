@@ -36,7 +36,7 @@ class RecycleViewDB : AppCompatActivity() {
                         val user = usersnapshot.getValue(DataClass::class.java)
                         userArray.add(user!!)
                     }
-                    println(userArray)
+
 
                     userRecyclerView.adapter = AdapterClass(userArray)
                 }
