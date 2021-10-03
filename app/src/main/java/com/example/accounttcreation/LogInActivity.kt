@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -22,6 +23,7 @@ class LogInActivity : AppCompatActivity() {
         var password = findViewById<EditText>(R.id.LogInPassword)
         val button2 = findViewById<Button>(R.id.login2)
         var resetBtn = findViewById<Button>(R.id.ResetPasswordButton)
+
 
         resetBtn.setOnClickListener {
             startActivity(Intent(this@LogInActivity, ResetPassword::class.java))
@@ -69,6 +71,7 @@ class LogInActivity : AppCompatActivity() {
                                     "You are Log In Successfully",
                                     Toast.LENGTH_SHORT
                                 ).show()
+
 
                                 val intent = Intent(this@LogInActivity, MainActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NEW_TASK

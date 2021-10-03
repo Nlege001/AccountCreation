@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
         val nav = findViewById<NavigationView>(R.id.navView)
 
+
         toggle = ActionBarDrawerToggle(this,drawer, R.string.open, R.string.close)
         drawer.addDrawerListener(toggle)
         toggle.syncState()
@@ -38,8 +39,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
+
         val userId = intent.getStringExtra("user_id")
         val emailId = intent.getStringExtra("email_id")
+
+
 
 
         val emailText = findViewById<TextView>(R.id.MainEmail)
@@ -47,8 +52,15 @@ class MainActivity : AppCompatActivity() {
         val mainButton = findViewById<Button>(R.id.logoutButton)
         val dataButton = findViewById<Button>(R.id.DatabaseButton)
 
+
+
+
         emailText.text = "User ID :: $userId"
         passwordText.text = "Email ID :: $emailId"
+
+
+
+
 
         mainButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
