@@ -60,6 +60,9 @@ class LogInActivity : AppCompatActivity() {
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 val firebaseUser : FirebaseUser = task.result!!.user!!
+                                var userState = FirebaseAuth.getInstance().currentUser!!.isEmailVerified
+
+                                if(userState){
 
                                 Toast.makeText(
                                     this@LogInActivity,
@@ -73,15 +76,21 @@ class LogInActivity : AppCompatActivity() {
                                 intent.putExtra("email_id", ProvidedEmail)
                                 startActivity(intent)
                                 finish()
-                            } else{
+                            } else if(!userState){
+                                // registration wasn't successful
+                                Toast.makeText(
+                                    this@LogInActivity,
+                                    "Please verify email",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }else{
                                 // registration wasn't successful
                                 Toast.makeText(
                                     this@LogInActivity,
                                     task.exception!!.message.toString(),
                                     Toast.LENGTH_SHORT
                                 ).show()
-                            }
-                        }
 
 
 
@@ -95,4 +104,4 @@ class LogInActivity : AppCompatActivity() {
 
         }
     }
-}
+}}}
