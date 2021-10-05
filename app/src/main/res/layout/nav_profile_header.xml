@@ -12,16 +12,16 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/pp1"/>
-    
+
     <TextView
+        android:id="@+id/emailNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id = "@+id/emailNav"
         android:padding="8dp"
-        android:textSize="20dp"
         android:textColor="@color/black"
+        android:textSize="20dp"
         android:textStyle="bold" />
-    
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

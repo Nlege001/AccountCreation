@@ -31,9 +31,10 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         nav.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.item1 -> Toast.makeText(applicationContext, "Clicked Item 1", Toast.LENGTH_SHORT).show()
-                R.id.item2 -> Toast.makeText(applicationContext, "Clicked Item 2", Toast.LENGTH_SHORT).show()
-                R.id.item3 -> Toast.makeText(applicationContext, "Clicked Item 3", Toast.LENGTH_SHORT).show()
+                R.id.home_item -> Toast.makeText(applicationContext, "Home", Toast.LENGTH_SHORT).show()
+                R.id.account_item -> Toast.makeText(applicationContext, "Account", Toast.LENGTH_SHORT).show()
+                R.id.settings_item -> Toast.makeText(applicationContext, "Settings", Toast.LENGTH_SHORT).show()
+                R.id.logout_item -> Toast.makeText(applicationContext,"Logout",Toast.LENGTH_SHORT).show()
             }
             true
         }
