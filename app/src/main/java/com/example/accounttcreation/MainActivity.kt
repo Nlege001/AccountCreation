@@ -1,14 +1,19 @@
 package com.example.accounttcreation
 
+import android.app.usage.UsageEvents
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.EventLog
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.home_item -> Toast.makeText(applicationContext, "Home", Toast.LENGTH_SHORT).show()
                 R.id.account_item -> Toast.makeText(applicationContext, "Account", Toast.LENGTH_SHORT).show()
                 R.id.settings_item -> Toast.makeText(applicationContext, "Settings", Toast.LENGTH_SHORT).show()
-                R.id.logout_item -> Toast.makeText(applicationContext,"Logout",Toast.LENGTH_SHORT).show()
+                R.id.logout_item -> showAlertDialog()
             }
             true
         }
@@ -84,6 +89,23 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun showAlertDialog(){
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Log Out")
+        builder.setMessage("Are you sure you want to log out?")
+        builder.setPositiveButton("Yes"){dialog, id ->
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this@MainActivity, LogInActivity::class.java))
+            finish()
+        }
+        builder.setNegativeButton("No"){dialog, id ->
+            dialog.dismiss()
+        }
+        var alert = builder.create()
+        alert.show()
     }
 
 }
