@@ -13,21 +13,27 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var drawer: DrawerLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
+        drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
         val nav = findViewById<NavigationView>(R.id.navView)
+        //val navController = findNavController()
+
 
 
         toggle = ActionBarDrawerToggle(this,drawer, R.string.open, R.string.close)
@@ -35,14 +41,17 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         nav.setNavigationItemSelectedListener {
+
+            it.isChecked = true
             when(it.itemId){
                 R.id.home_item -> Toast.makeText(applicationContext, "Home", Toast.LENGTH_SHORT).show()
-                R.id.account_item -> Toast.makeText(applicationContext, "Account", Toast.LENGTH_SHORT).show()
+                R.id.account_item -> replaceFragment(ProfileFragment(), it.title.toString())
                 R.id.settings_item -> Toast.makeText(applicationContext, "Settings", Toast.LENGTH_SHORT).show()
                 R.id.logout_item -> showAlertDialog()
             }
             true
         }
+
 
 
 
@@ -66,6 +75,17 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        ProvideInput.setOnClickListener {
+            startActivity(Intent(this, UserInput::class.java ))
+        }
+
+
+        AssessmentView.setOnClickListener {
+            startActivity(Intent(this, DisplayUserInput::class.java))
+        }
+
+
+
 
 
         mainButton.setOnClickListener {
@@ -84,6 +104,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun replaceFragment(fragment : Fragment, title : String){
+
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frameLayout, fragment)
+        //fragmentManager.popBackStackImmediate()
+        fragmentTransaction.commit()
+        drawer.closeDrawers()
+        setTitle(title)
+
+    }
+
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)){
             return true
@@ -91,7 +125,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun showAlertDialog(){
+    private fun showAlertDialog(){
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Log Out")
