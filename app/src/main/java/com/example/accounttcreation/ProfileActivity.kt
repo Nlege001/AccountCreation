@@ -24,6 +24,16 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
 
+        profile_backbtn.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+
+        change_password.setOnClickListener {
+            startActivity(Intent(this, ResetPassword::class.java))
+        }
+
+
         image_view.setOnClickListener {
             takePictureIntent()
         }

@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/layout/activity_display_user_input.xml" value="0.221875" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_recycle_view_db.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
