@@ -10,19 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AccounttCreation">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="true"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/Theme.AccounttCreation.NoActionBar" />
+        <activity
             android:name=".DisplayUserInput"
             android:exported="true" />
         <activity
             android:name=".UserInput"
             android:exported="true" />
-        <activity
-            android:name=".AccountActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ScrollingActivity"
-            android:exported="true"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/Theme.AccounttCreation.NoActionBar" />
+
         <activity
             android:name=".ResetPassword"
             android:exported="true" />

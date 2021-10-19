@@ -34,6 +34,11 @@ class MainActivity : AppCompatActivity() {
         val nav = findViewById<NavigationView>(R.id.navView)
         //val navController = findNavController()
 
+        // for displaying email on navigation view
+
+
+
+
 
 
         toggle = ActionBarDrawerToggle(this,drawer, R.string.open, R.string.close)
@@ -45,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             it.isChecked = true
             when(it.itemId){
                 R.id.home_item -> Toast.makeText(applicationContext, "Home", Toast.LENGTH_SHORT).show()
-                R.id.account_item -> replaceFragment(ProfileFragment(), it.title.toString())
+                R.id.account_item -> startActivity(Intent(this, ProfileActivity::class.java))    //replaceFragment(ProfileFragment(), it.title.toString())
                 R.id.settings_item -> Toast.makeText(applicationContext, "Settings", Toast.LENGTH_SHORT).show()
                 R.id.logout_item -> showAlertDialog()
             }
@@ -58,6 +63,8 @@ class MainActivity : AppCompatActivity() {
 
         val userId = intent.getStringExtra("user_id")
         val emailId = intent.getStringExtra("email_id")
+
+
 
 
 
@@ -103,6 +110,9 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
+
 
     private fun replaceFragment(fragment : Fragment, title : String){
 
