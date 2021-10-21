@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             it.isChecked = true
             when(it.itemId){
                 R.id.home_item -> Toast.makeText(applicationContext, "Home", Toast.LENGTH_SHORT).show()
-                R.id.account_item -> startActivity(Intent(this, ProfileActivity::class.java))    //replaceFragment(ProfileFragment(), it.title.toString())
+                R.id.account_item -> startActivity(Intent(this, ProfileActivity::class.java))  //replaceFragment(ProfileFragment(), it.title.toString())
                 R.id.settings_item -> Toast.makeText(applicationContext, "Settings", Toast.LENGTH_SHORT).show()
                 R.id.logout_item -> showAlertDialog()
             }

@@ -9,14 +9,19 @@ import android.provider.MediaStore
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile.*
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
 
     private val request_image_capture = 1
+    private val request_select_image = 2
     private lateinit var imageUri : Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +40,9 @@ class ProfileActivity : AppCompatActivity() {
 
 
         image_view.setOnClickListener {
-            takePictureIntent()
+            //takePictureIntent()
+            ChangeProfilePictureDialog()
+
         }
 
         val user = FirebaseAuth.getInstance().currentUser
@@ -89,7 +96,62 @@ class ProfileActivity : AppCompatActivity() {
 
                 }
             }
+    private fun selectImage(){
+        val intent = Intent()
+        intent.type = "images/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(intent, request_select_image)
+
+    }
+
+    
+
+
+
+    private fun uploadFromGallery(){
+        val fileName = FirebaseAuth.getInstance().currentUser?.email.toString()
+        val storageRef = FirebaseStorage.getInstance().getReference("images/$fileName")
+        storageRef.putFile(imageUri).
+                addOnSuccessListener {
+                    Toast.makeText(this, "Upload Complete", Toast.LENGTH_SHORT).show()
+                    image_view.setImageURI(imageUri)
+                }
+            .addOnFailureListener{
+                Toast.makeText(this, "Upload Failed", Toast.LENGTH_SHORT).show()
+
         }
+
+
+    }
+
+
+
+
+
+
+
+
+    private fun ChangeProfilePictureDialog(){
+        val listItems = arrayOf("Open Camera","Choose from Gallery")
+        val builder = AlertDialog.Builder(this@ProfileActivity)
+        builder.setTitle("Change Profile Picture")
+        builder.setSingleChoiceItems(listItems, -1){dialogInterface, i->
+            listItems[i]
+            if (listItems[i] == "Open Camera"){
+                takePictureIntent() // if open camera is chosen,camera is opened for picture change
+            }
+            dialogInterface.dismiss()
+            }
+        builder.setNeutralButton("Cancel"){dialog, which ->
+            dialog.cancel()
+            }
+
+        val dialog = builder.create()
+        dialog.show()
+
+            }
+        }
+
 
 
 
