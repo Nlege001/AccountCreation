@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AccounttCreation">
         <activity
+            android:name=".SearchBar"
+            android:exported="true" />
+        <activity
             android:name=".ResetPassword"
             android:exported="true" />
         <activity
