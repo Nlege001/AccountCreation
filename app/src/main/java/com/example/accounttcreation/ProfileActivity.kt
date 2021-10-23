@@ -57,6 +57,12 @@ class ProfileActivity : AppCompatActivity() {
         startActivityForResult(pictureIntent, request_image_capture)
         }
 
+    private fun chooseFromGallery(){
+        val galleryIntent = Intent (Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(galleryIntent, request_select_image)
+
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -96,33 +102,8 @@ class ProfileActivity : AppCompatActivity() {
 
                 }
             }
-    private fun selectImage(){
-        val intent = Intent()
-        intent.type = "images/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(intent, request_select_image)
-
-    }
-
-    
 
 
-
-    private fun uploadFromGallery(){
-        val fileName = FirebaseAuth.getInstance().currentUser?.email.toString()
-        val storageRef = FirebaseStorage.getInstance().getReference("images/$fileName")
-        storageRef.putFile(imageUri).
-                addOnSuccessListener {
-                    Toast.makeText(this, "Upload Complete", Toast.LENGTH_SHORT).show()
-                    image_view.setImageURI(imageUri)
-                }
-            .addOnFailureListener{
-                Toast.makeText(this, "Upload Failed", Toast.LENGTH_SHORT).show()
-
-        }
-
-
-    }
 
 
 
