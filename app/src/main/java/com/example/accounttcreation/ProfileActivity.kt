@@ -21,8 +21,9 @@ import java.util.*
 class ProfileActivity : AppCompatActivity() {
 
     private val request_image_capture = 1
-    private val request_select_image = 2
+    companion object {private val request_select_image = 2}
     private lateinit var imageUri : Uri
+    private lateinit var filepath : Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +59,8 @@ class ProfileActivity : AppCompatActivity() {
         }
 
     private fun chooseFromGallery(){
-        val galleryIntent = Intent (Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        val galleryIntent = Intent(Intent.ACTION_PICK)
+        galleryIntent.type = "image/*"
         startActivityForResult(galleryIntent, request_select_image)
 
     }
@@ -66,9 +68,18 @@ class ProfileActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == request_image_capture && resultCode == RESULT_OK){
-            val imageBitmap = data?.extras?.get("data") as Bitmap
-            uploadImageAndSaveUrl(imageBitmap)
+        if(resultCode == RESULT_OK){
+            when (requestCode) {
+                request_image_capture -> {
+                    val imageBitmap = data?.extras?.get("data") as Bitmap
+                    uploadImageAndSaveUrl(imageBitmap)
+                }
+                request_select_image -> {
+                    val imageBitmap = data?.extras?.get("data") as Bitmap
+                    uploadImageAndSaveUrl(imageBitmap)
+
+                }
+            }
         }
     }
 
@@ -120,6 +131,8 @@ class ProfileActivity : AppCompatActivity() {
             listItems[i]
             if (listItems[i] == "Open Camera"){
                 takePictureIntent() // if open camera is chosen,camera is opened for picture change
+            }else if (listItems[i] == "choose from Gallery"){
+                chooseFromGallery()
             }
             dialogInterface.dismiss()
             }

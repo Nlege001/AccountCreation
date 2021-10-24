@@ -11,6 +11,7 @@
         android:theme="@style/Theme.AccounttCreation">
         <activity
             android:name=".ProfileActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="true"
             android:label="@string/title_activity_profile"
             android:theme="@style/Theme.AccounttCreation.NoActionBar" />
