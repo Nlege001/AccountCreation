@@ -9,11 +9,18 @@ import android.provider.MediaStore
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.Toast
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.activity_profile.change_password
+import kotlinx.android.synthetic.main.activity_profile.image_view
+import kotlinx.android.synthetic.main.activity_profile.profile_email_textView
+import kotlinx.android.synthetic.main.activity_profile.progressbar
+import kotlinx.android.synthetic.main.fragment_profile.*
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,7 +30,7 @@ class ProfileActivity : AppCompatActivity() {
     private val request_image_capture = 1
     companion object {private val request_select_image = 2}
     private lateinit var imageUri : Uri
-    private lateinit var filepath : Uri
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +50,7 @@ class ProfileActivity : AppCompatActivity() {
         image_view.setOnClickListener {
             //takePictureIntent()
             ChangeProfilePictureDialog()
+            //chooseFromGallery.launch("image/*")
 
         }
 
@@ -58,12 +66,14 @@ class ProfileActivity : AppCompatActivity() {
         startActivityForResult(pictureIntent, request_image_capture)
         }
 
-    private fun chooseFromGallery(){
-        val galleryIntent = Intent(Intent.ACTION_PICK)
-        galleryIntent.type = "image/*"
-        startActivityForResult(galleryIntent, request_select_image)
+    val chooseFromGallery = registerForActivityResult(
+        ActivityResultContracts.GetContent(),
+        ActivityResultCallback {
+            uploadFromGallery(it)
+            //image_view.setImageURI(it)
 
-    }
+        }
+    )
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -73,11 +83,6 @@ class ProfileActivity : AppCompatActivity() {
                 request_image_capture -> {
                     val imageBitmap = data?.extras?.get("data") as Bitmap
                     uploadImageAndSaveUrl(imageBitmap)
-                }
-                request_select_image -> {
-                    val imageBitmap = data?.extras?.get("data") as Bitmap
-                    uploadImageAndSaveUrl(imageBitmap)
-
                 }
             }
         }
@@ -115,6 +120,25 @@ class ProfileActivity : AppCompatActivity() {
             }
 
 
+    private fun uploadFromGallery(uri: Uri){
+        val storageRef = FirebaseStorage.getInstance()
+            .reference.child("pics/${FirebaseAuth.getInstance().currentUser?.uid}")
+
+        storageRef.putFile(imageUri).addOnCompleteListener{uploadTask ->
+            progressbar.visibility = VISIBLE
+            if(uploadTask.isSuccessful){
+                storageRef.downloadUrl.addOnCompleteListener { urlTask ->
+                    urlTask.result?.let {
+                        imageUri = it
+                        Toast.makeText(this@ProfileActivity, imageUri.toString(), Toast.LENGTH_SHORT).show()
+                        image_view.setImageURI(imageUri)
+                    }
+                }
+            }
+        }
+    }
+
+
 
 
 
@@ -132,7 +156,7 @@ class ProfileActivity : AppCompatActivity() {
             if (listItems[i] == "Open Camera"){
                 takePictureIntent() // if open camera is chosen,camera is opened for picture change
             }else if (listItems[i] == "choose from Gallery"){
-                chooseFromGallery()
+                chooseFromGallery.launch("image/*")
             }
             dialogInterface.dismiss()
             }

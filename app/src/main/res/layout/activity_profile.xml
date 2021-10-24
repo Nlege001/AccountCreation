@@ -58,6 +58,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+
             <TextView
                 android:id="@+id/text_email"
                 android:layout_width="match_parent"
@@ -67,7 +68,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 app:drawableLeftCompat="@drawable/email_ic"
                 tools:text="Change email" />
-
 
             <TextView
                 android:id="@+id/change_password"

@@ -9,17 +9,19 @@
     android:background="@color/purple_500">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id = "@+id/circleImageView"
         android:layout_width="126dp"
-        android:layout_height="117dp"
-        android:src="@drawable/pp1" />
+        android:layout_height="117dp" />
+
 
     <TextView
         android:id="@+id/emailNav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="13dp"
         android:padding="8dp"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/white"
+        android:textSize="80dp"
         android:textStyle="bold" />
 
     <View
@@ -27,7 +29,11 @@
         android:layout_height="1dp"
         android:layout_marginTop="30dp"/>
 
-
+    <TextView
+        android:id="@+id/NavDrawerText"
+        android:layout_width="421dp"
+        android:layout_height="34dp"
+        android:text="TextView" />
 
 
 </LinearLayout>
