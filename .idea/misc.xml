@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/layout/activity_display_user_input.xml" value="0.221875" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.67" />
         <entry key="app/src/main/res/layout/activity_recycle_view_db.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
@@ -26,7 +26,7 @@
         <entry key="app/src/main/res/layout/layout_head.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/list_item_display.xml" value="0.5" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.240625" />
-        <entry key="app/src/main/res/layout/nav_profile_header.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/nav_profile_header.xml" value="0.294238683127572" />
         <entry key="app/src/main/res/menu/menu_scrolling.xml" value="0.2171875" />
         <entry key="app/src/main/res/menu/nav_drawer_menu.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16822916666666668" />

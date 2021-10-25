@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_profile.change_password
 import kotlinx.android.synthetic.main.activity_profile.image_view
 import kotlinx.android.synthetic.main.activity_profile.profile_email_textView
 import kotlinx.android.synthetic.main.activity_profile.progressbar
-import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.nav_profile_header.*
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
@@ -30,11 +31,20 @@ class ProfileActivity : AppCompatActivity() {
     private val request_image_capture = 1
     companion object {private val request_select_image = 2}
     private lateinit var imageUri : Uri
+    private lateinit var url : String
+    private lateinit var uid : String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        val storage = FirebaseStorage.getInstance().reference.child("pics/$uid")
+        storage.downloadUrl.addOnSuccessListener { result ->
+            url = result.toString()
+            Glide.with(this).load(url).into(image_view)
+        }
 
 
         profile_backbtn.setOnClickListener {

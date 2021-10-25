@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/Linear_pp"
     android:background="@color/white"
-    tools:context=".ProfileFragment">
+    tools:context=".ProfileActivity">
 
 
     <RelativeLayout
@@ -19,12 +19,14 @@
             android:layout_height="200dp"
             android:background="@color/purple_500">
 
-            <ImageView
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_view"
-                android:layout_width="68dp"
-                android:layout_height="78dp"
+                android:layout_width="120dp"
+                android:layout_height="118dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/pp_fragment" />
+                android:background="@drawable/pp_fragment"
+                android:src="@drawable/profile_icon" />
 
             <TextView
                 android:id="@+id/profile_email_textView"
@@ -61,18 +63,18 @@
 
             <TextView
                 android:id="@+id/text_email"
-                android:layout_width="match_parent"
+                android:layout_width="338dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:drawablePadding="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 app:drawableLeftCompat="@drawable/email_ic"
-                tools:text="Change email" />
+                android:text="Change email" />
 
             <TextView
                 android:id="@+id/change_password"
-                android:layout_width="match_parent"
-                android:layout_height="66dp"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_marginBottom="20dp"
                 android:drawablePadding="16dp"
