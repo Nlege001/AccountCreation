@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_user_input.*
 
 class UserInput : AppCompatActivity() {
+    private lateinit var uid : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_input)
@@ -20,8 +23,9 @@ class UserInput : AppCompatActivity() {
             val courseRating = CourseRating.text.toString()
             val grade = Grade.text.toString()
             val comments = Comments.text.toString()
+            val UID : String = FirebaseAuth.getInstance().currentUser?.uid.toString()
 
-            saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments)
+            saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, UID)
 
             startActivity(Intent(this, MainActivity::class.java))
 
@@ -31,7 +35,7 @@ class UserInput : AppCompatActivity() {
         }
     }
 
-    fun saveFireStore(proffessor: String, courseNumber : String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String){
+    fun saveFireStore(proffessor: String, courseNumber : String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, UID : String){
         val db = FirebaseFirestore.getInstance()
         val Input : MutableMap<String,Any> = HashMap()
         Input["proffessor"] = proffessor
@@ -41,6 +45,7 @@ class UserInput : AppCompatActivity() {
         Input["courseRating"] = courseRating
         Input["grade"] = grade
         Input["comments"] =comments
+        Input["UID"] = UID
 
         db.collection("Input")
             .add(Input)
