@@ -41,5 +41,6 @@ class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : 
         val courseRating : TextView = itemview.findViewById(R.id.cRating_card)
         val grade : TextView = itemview.findViewById(R.id.garde_card)
         val comments : TextView = itemview.findViewById(R.id.comments_card)
+
     }
 }

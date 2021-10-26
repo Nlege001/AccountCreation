@@ -24,8 +24,9 @@ class UserInput : AppCompatActivity() {
             val grade = Grade.text.toString()
             val comments = Comments.text.toString()
             val UID : String = FirebaseAuth.getInstance().currentUser?.uid.toString()
+            val email : String = FirebaseAuth.getInstance().currentUser?.email.toString()
 
-            saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, UID)
+            saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, UID, email)
 
             startActivity(Intent(this, MainActivity::class.java))
 
@@ -35,7 +36,7 @@ class UserInput : AppCompatActivity() {
         }
     }
 
-    fun saveFireStore(proffessor: String, courseNumber : String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, UID : String){
+    fun saveFireStore(proffessor: String, courseNumber : String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, UID : String, email:String){
         val db = FirebaseFirestore.getInstance()
         val Input : MutableMap<String,Any> = HashMap()
         Input["proffessor"] = proffessor
@@ -46,6 +47,7 @@ class UserInput : AppCompatActivity() {
         Input["grade"] = grade
         Input["comments"] =comments
         Input["UID"] = UID
+        Input["email"] = email
 
         db.collection("Input")
             .add(Input)
