@@ -208,11 +208,11 @@
             android:id="@+id/email_profile_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="57dp"
-            android:layout_marginTop="103dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="108dp"
             android:text="ANY"
             android:textColor="@color/black"
-            android:textSize="13sp"
+            android:textSize="8sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

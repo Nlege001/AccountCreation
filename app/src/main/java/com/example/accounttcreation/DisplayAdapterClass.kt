@@ -3,8 +3,13 @@ package com.example.accounttcreation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.nav_profile_header.*
 
 class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : RecyclerView.Adapter<DisplayAdapterClass.MyviewHolder>() {
 
@@ -24,6 +29,12 @@ class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : 
         holder.courseRating.text = input.courseRating
         holder.grade.text = input.grade
         holder.comments.text = input.comments
+        holder.email.text = input.email
+
+
+
+
+
 
 
     }
@@ -41,6 +52,10 @@ class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : 
         val courseRating : TextView = itemview.findViewById(R.id.cRating_card)
         val grade : TextView = itemview.findViewById(R.id.garde_card)
         val comments : TextView = itemview.findViewById(R.id.comments_card)
+        val email : TextView = itemview.findViewById(R.id.email_profile_text)
+        val profilePic : ImageView = itemview.findViewById(R.id.image_view_profile)
 
     }
+
+
 }
