@@ -1,18 +1,19 @@
 
-public class View {
+
+public class Academic {
 private String Email;
 private String Faculty;
 private String Name;
 private String Title;
 
-    public View() {
+    public Academic() {
     }
 
-    public View(String email, String faculty, String name, String title) {
-        Email = email;
-        Faculty = faculty;
-        Name = name;
-        Title = title;
+    public Academic(String email, String faculty, String name, String title) {
+        this.Email = email;
+        this.Faculty = faculty;
+        this.Name = name;
+        this.Title = title;
     }
 
     public String getEmail() {
@@ -20,7 +21,7 @@ private String Title;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.Email = email;
     }
 
     public String getFaculty() {
@@ -28,7 +29,7 @@ private String Title;
     }
 
     public void setFaculty(String faculty) {
-        Faculty = faculty;
+        this.Faculty = faculty;
     }
 
     public String getName() {
@@ -36,7 +37,7 @@ private String Title;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.Name = name;
     }
 
     public String getTitle() {
@@ -44,6 +45,6 @@ private String Title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.Title = title;
     }
 }
