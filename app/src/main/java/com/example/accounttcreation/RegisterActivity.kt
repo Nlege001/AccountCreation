@@ -52,14 +52,26 @@ class RegisterActivity : AppCompatActivity() {
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 val firebaseUser : FirebaseUser = task.result!!.user!!
+                                val user = FirebaseAuth.getInstance().currentUser
 
-                                Toast.makeText(
-                                    this@RegisterActivity,
-                                    "You are registered Successfully",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                user?.sendEmailVerification()
+                                    ?.addOnCompleteListener { task->
+                                        if (task.isSuccessful){
+                                            Toast.makeText(
+                                                this@RegisterActivity,
+                                                "Verification Email sent, please verify email",
+                                                Toast.LENGTH_LONG
+                                            ).show()
+                                        }else{
+                                            Toast.makeText(
+                                                this@RegisterActivity,
+                                                task.exception!!.message.toString(),
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
 
-                                val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+                                val intent = Intent(this@RegisterActivity, LogInActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                 intent.putExtra("user_id", firebaseUser.uid)
                                 intent.putExtra("email_id", ProvidedEmail)
