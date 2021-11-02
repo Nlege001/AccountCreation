@@ -19,7 +19,7 @@ class SearchBar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_bar)
-        ref = FirebaseDatabase.getInstance().reference.child("Data Class")
+        ref = FirebaseDatabase.getInstance().reference.child("Academic Advising")
         recyclerView = findViewById(R.id.recylcerView)
         searchView = findViewById(R.id.searchView)
     }
