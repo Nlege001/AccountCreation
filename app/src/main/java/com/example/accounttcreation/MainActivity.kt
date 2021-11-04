@@ -123,6 +123,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, DisplayUserInput::class.java))
         }
 
+        SearchProfByName.setOnClickListener {
+            startActivity(Intent(this, SearchViewProfByNameActivity::class.java))
+        }
+
 
 
 
