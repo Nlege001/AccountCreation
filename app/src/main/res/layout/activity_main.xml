@@ -30,6 +30,14 @@
                 android:layout_marginStart="118dp"
                 android:layout_marginTop="178dp"
                 android:text="See Assessments" />
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="250dp"
+                android:layout_marginStart="120dp"
+                android:text="Search DataBase" />
         </FrameLayout>
 
 
@@ -50,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:text="You have signed in Successfully"
+            android:layout_marginTop="60dp"
             app:layout_constraintBottom_toTopOf="@+id/MainEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +92,7 @@
             android:layout_width="170dp"
             android:layout_height="0dp"
             android:layout_marginEnd="105dp"
-            android:layout_marginBottom="265dp"
+            android:layout_marginBottom="200dp"
             android:text="LogOut"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

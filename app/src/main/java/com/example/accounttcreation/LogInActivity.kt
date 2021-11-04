@@ -25,6 +25,7 @@ class LogInActivity : AppCompatActivity() {
         var resetBtn = findViewById<Button>(R.id.ResetPasswordButton)
 
 
+
         resetBtn.setOnClickListener {
             startActivity(Intent(this@LogInActivity, ResetPassword::class.java))
         }

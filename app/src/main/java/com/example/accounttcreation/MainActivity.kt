@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         val passwordText = findViewById<TextView>(R.id.MainPassword)
         val mainButton = findViewById<Button>(R.id.logoutButton)
         val dataButton = findViewById<Button>(R.id.DatabaseButton)
+        var searchBtn = findViewById<Button>(R.id.search_button)
 
 
 
@@ -106,7 +107,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, RecycleViewDB::class.java))
         }
 
-
+        searchBtn.setOnClickListener {
+            startActivity(Intent(this, SearchBar::class.java))
+        }
 
 
     }
