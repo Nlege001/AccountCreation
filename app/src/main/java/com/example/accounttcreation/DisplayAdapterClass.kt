@@ -12,11 +12,20 @@ import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.nav_profile_header.*
 
 class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : RecyclerView.Adapter<DisplayAdapterClass.MyviewHolder>() {
+    private lateinit var mListener : onItemClickListener
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener : onItemClickListener){
+        mListener = listener
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DisplayAdapterClass.MyviewHolder {
         val itemview = LayoutInflater.from(parent.context).inflate(R.layout.list_item_display, parent, false)
-        return MyviewHolder(itemview)
+        return MyviewHolder(itemview, mListener)
     }
 
     override fun onBindViewHolder(holder: DisplayAdapterClass.MyviewHolder, position: Int) {
@@ -31,6 +40,10 @@ class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : 
         holder.comments.text = input.comments
         holder.email.text = input.email
 
+        val downloadURLPATH = input[8]
+        Glide.with(holder.itemView.context).load(downloadURLPATH).into(holder.profilePic)
+
+
 
 
 
@@ -43,7 +56,7 @@ class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : 
         return userList.size
     }
 
-    public class MyviewHolder(itemview:View): RecyclerView.ViewHolder(itemview){
+    public class MyviewHolder(itemview:View, listener: onItemClickListener): RecyclerView.ViewHolder(itemview){
 
         val professor : TextView = itemview.findViewById(R.id.profName_card)
         val courseNumber : TextView = itemview.findViewById(R.id.crn_card)
@@ -54,6 +67,13 @@ class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : 
         val comments : TextView = itemview.findViewById(R.id.comments_card)
         val email : TextView = itemview.findViewById(R.id.email_profile_text)
         val profilePic : ImageView = itemview.findViewById(R.id.image_view_profile)
+
+
+        init {
+            itemview.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
 
     }
 

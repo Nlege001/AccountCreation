@@ -1,5 +1,6 @@
 package com.example.accounttcreation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -20,7 +21,6 @@ class DisplayUserInput : AppCompatActivity() {
     private lateinit var myAdapter : DisplayAdapterClass
     private lateinit var db : FirebaseFirestore
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display_user_input)
@@ -35,11 +35,34 @@ class DisplayUserInput : AppCompatActivity() {
 
         userArrayList = arrayListOf()
 
+
         myAdapter = DisplayAdapterClass(userArrayList)
 
         recyclerView.adapter = myAdapter
 
         EvenChangeListener()
+
+        myAdapter.setOnItemClickListener(object : DisplayAdapterClass.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                //Toast.makeText(this@DisplayUserInput, "you clicked on item $position", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@DisplayUserInput, DisplayIndividualUserInput::class.java )
+                intent.putExtra("profName", userArrayList[position].proffessor)
+                intent.putExtra("courseNumber", userArrayList[position].courseNumber)
+                intent.putExtra("semester", userArrayList[position].semester)
+                intent.putExtra("difficulty", userArrayList[position].difficlty)
+                intent.putExtra("courseRating", userArrayList[position].courseRating)
+                intent.putExtra("grade", userArrayList[position].grade)
+                intent.putExtra("comments", userArrayList[position].comments)
+                intent.putExtra("email", userArrayList[position].email)
+                startActivity(intent)
+
+            }
+
+        })
+
+
+
+
 
 
 
