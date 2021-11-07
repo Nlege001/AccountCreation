@@ -3,21 +3,27 @@ package com.example.accounttcreation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_profile.image_view
 import kotlinx.android.synthetic.main.list_item_display.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DisplayUserInput : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var userArrayList : ArrayList<DisplayDataClass>
+    private lateinit var tempArrayList: ArrayList<DisplayDataClass>
     private lateinit var myAdapter : DisplayAdapterClass
     private lateinit var db : FirebaseFirestore
 
@@ -34,9 +40,11 @@ class DisplayUserInput : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
         userArrayList = arrayListOf()
+        tempArrayList = arrayListOf()
 
 
-        myAdapter = DisplayAdapterClass(userArrayList)
+
+        myAdapter = DisplayAdapterClass(tempArrayList)
 
         recyclerView.adapter = myAdapter
 
@@ -69,6 +77,44 @@ class DisplayUserInput : AppCompatActivity() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.search_recycler_view, menu)
+        val item = menu?.findItem(R.id.search_recycler)
+        val searchViewRecycler = item?.actionView as SearchView
+        searchViewRecycler.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                tempArrayList.clear()
+                val searchText = newText!!.lowercase(Locale.getDefault())
+                if(searchText.isNotEmpty()){
+
+                    userArrayList.forEach{
+                        if(it.proffessor?.lowercase(Locale.getDefault())?.contains(searchText) == true){
+                            tempArrayList.add(it)
+                        }
+                    }
+                    recyclerView.adapter!!.notifyDataSetChanged()
+
+
+                }else{
+                    tempArrayList.clear()
+                    tempArrayList.addAll(userArrayList)
+                    recyclerView.adapter!!.notifyDataSetChanged()
+
+                }
+                return false
+            }
+
+        })
+
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
     private fun EvenChangeListener(){
 
         db = FirebaseFirestore.getInstance()
@@ -88,7 +134,7 @@ class DisplayUserInput : AppCompatActivity() {
                                 userArrayList.add(dc.document.toObject(DisplayDataClass::class.java))
                             }
                         }
-
+                        tempArrayList.addAll(userArrayList)
                         myAdapter.notifyDataSetChanged()
 
 
