@@ -65,10 +65,6 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
                 "Political Science" , "Psychology" , "Sociology" , "Supply Chain Management & International Business" , "Teacher Education, Grad MSEd Program" , "Teacher Education, Undergraduate" , "Technology Enhanced Learning" , "Telecommunications" , "Theatre")
 
 
-
-
-
-        //val departments = resources.getStringArray(R.array.department)
         val arrayAdapter = ArrayAdapter(this, R.layout.drop_down_items_department, departments)
         val autoCompleteDepartmentDropDown = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         autoCompleteDepartmentDropDown.setAdapter(arrayAdapter)
