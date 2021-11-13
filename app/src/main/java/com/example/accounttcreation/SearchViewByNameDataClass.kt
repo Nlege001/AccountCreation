@@ -1,5 +1,8 @@
 package com.example.accounttcreation
 
-data class SearchViewByNameDataClass(
-    var Name : String = "",
-    var Title : String = "")
+class SearchViewByNameDataClass(
+    //TODO : ADD @Serialized
+    var Name : String,
+    var Facutly : String,
+    var Email : String,
+    var Title : String)

@@ -23,6 +23,7 @@
         android:id="@+id/ListView"
         android:layout_width="318dp"
         android:layout_height="601dp"
+        android:scrollbars="vertical"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"

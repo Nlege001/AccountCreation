@@ -1,0 +1,36 @@
+{
+  "Academic Advising" : [
+
+  {
+    "Faculty": "Academic Advising",
+    "Name": "Bernat, Elizabeth",
+    "Email": "bernater@plattsburgh.edu",
+    "Title": "Director"
+  },
+  {
+    "Faculty": "Academic Advising",
+    "Name": "Coons, Wendy",
+    "Email": "coonswl@plattsburgh.edu",
+    "Title": "Administrative Assistant 1"
+  },
+  {
+    "Faculty": "Academic Advising",
+    "Name": "Jennette-Costin, Diane",
+    "Email": "jenn1630@plattsburgh.edu",
+    "Title": "Office Assistant 2 (Keyboarding)"
+  },
+  {
+    "Faculty": "Academic Advising",
+    "Name": "Pickreign, Kelley",
+    "Email": "kpick004@plattsburgh.edu",
+    "Title": "Acad. Advisor/Dir. of Certification"
+  },
+  {
+    "Faculty": "Academic Advising",
+    "Name": "Schwamborn, Christopher",
+    "Email": "cschw010@plattsburgh.edu",
+    "Title": "Graduate Assistant"
+  }
+]
+
+}
