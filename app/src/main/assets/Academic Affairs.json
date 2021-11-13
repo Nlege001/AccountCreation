@@ -1,0 +1,34 @@
+{"Academic Affairs" : [
+
+{
+  "Faculty": "Academic Affairs",
+  "Name": "Bartlett, Suzanna",
+  "Email": "sbart001@plattsburgh.edu",
+  "Title": "Administrative Assistant 2"
+},
+{
+"Faculty": "Academic Affairs",
+"Name": "Burl, Cassandra",
+"Email": "burlcm@plattsburgh.edu",
+"Title": "Administrative Assistant 2"
+},
+{
+"Faculty": "Academic Affairs",
+"Name": "Gleeson-Kreig, JoAnn",
+"Email": "gleesojm@plattsburgh.edu",
+"Title": "Associate VP for Academic Affairs"
+},
+{
+"Faculty": "Academic Affairs",
+"Name": "Herzog, Anne",
+"Email": "aherz001@plattsburgh.edu",
+"Title": "Provost/VP for Academic Affairs"
+},
+{
+"Faculty": "Academic Affairs",
+"Name": "Withrow, Gregory",
+"Email": "withrogb@plattsburgh.edu",
+"Title": "Assistant to the Provost"
+}
+  ]
+}

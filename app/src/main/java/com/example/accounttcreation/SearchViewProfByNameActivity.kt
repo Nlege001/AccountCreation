@@ -41,6 +41,8 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
     lateinit var firebaseFirestore: CollectionReference
     private var searchList: List<SearchViewByNameDataClass> = ArrayList()
     //private val searchListAdapter = SearchListAdapter(searchList)
+    lateinit var fileName: String
+    private val facultyList : ArrayList<SearchViewByNameDataClass> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,37 +65,30 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
         var itemSelected = "" //TODO :: TAKE THE PATH
         autoCompleteDepartmentDropDown.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             itemSelected = parent.getItemAtPosition(position).toString()
-            //firebaseFirestore = FirebaseFirestore.getInstance().collection(itemSelected)
-        }
+            fileName = "$itemSelected.json"
+            try{
+                val obj = JSONObject(getJSONFromAssets(fileName)!!)
+                val facultyArray = obj.getJSONArray("$itemSelected")
 
-        //loading json data to recycler view
-        val facultyList : ArrayList<SearchViewByNameDataClass> = ArrayList()
-        try{
-            val obj = JSONObject(getJSONFromAssets()!!)
-            val facultyArray = obj.getJSONArray("Academic Advising")
+                for (i in 0 until facultyArray.length()){
+                    val facultyItems = facultyArray.getJSONObject(i)
+                    val name = facultyItems.getString("Name")
+                    val title = facultyItems.getString("Title")
+                    val email = facultyItems.getString("Email")
+                    val faculty = facultyItems.getString("Faculty")
 
-            for (i in 0 until facultyArray.length()){
-                val facultyItems = facultyArray.getJSONObject(i)
-                val name = facultyItems.getString("Name")
-                val title = facultyItems.getString("Title")
-                val email = facultyItems.getString("Email")
-                val faculty = facultyItems.getString("Faculty")
+                    val facultyDetails = SearchViewByNameDataClass(name, faculty, email, title)
+                    facultyList.add(facultyDetails)
 
-                val facultyDetails = SearchViewByNameDataClass(name, faculty, email, title)
-                facultyList.add(facultyDetails)
-
+                }
+            }catch (e:JSONException){
+                e.printStackTrace()
             }
-        }catch (e:JSONException){
-            e.printStackTrace()
+            ListView.layoutManager = LinearLayoutManager(this)
+            val facultyAdapter = SearchListAdapter(this, facultyList)
+            ListView.adapter = facultyAdapter
+
         }
-        ListView.layoutManager = LinearLayoutManager(this)
-        val facultyAdapter = SearchListAdapter(this, facultyList)
-        ListView.adapter = facultyAdapter
-
-
-        /*ListView.setHasFixedSize(true)
-        ListView.layoutManager = LinearLayoutManager(this)
-        ListView.adapter = searchListAdapter*/
 
         searchText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -102,7 +97,7 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val searchValue : String = searchText.text.toString()
-                //searchInFireStore(searchValue.lowercase())
+
 
 
             }
@@ -117,11 +112,11 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
 
 
     }
-    private fun getJSONFromAssets(): String?{
+    private fun getJSONFromAssets(fileName : String): String?{
         var json : String ?= null
         var charset : Charset = Charsets.UTF_8
         try{
-            val i = assets.open("Academic Advising.json")
+            val i = assets.open(fileName)
             val size = i.available()
             val buffer = ByteArray(size)
             i.read(buffer)
@@ -134,20 +129,6 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
         return json
     }
 
-    /*private fun searchInFireStore(searchValue : String){
-        FirebaseFirestore.getInstance().collection("Academic Advising").orderBy("Name").startAt(searchValue).endAt("$searchValue\uf8ff").get().addOnCompleteListener {
-            if(it.isSuccessful){
-                if(it.result!!.isEmpty) {
-                    searchList = it.result!!.toObjects(SearchViewByNameDataClass::class.java)
-                    searchListAdapter.items = items
-                    searchListAdapter.notifyDataSetChanged()
 
-
-                }
-            }else{
-                Log.d(TAG, "Error: ${it.exception!!.message}")
-            }
-        }
-    }*/
 
 }
