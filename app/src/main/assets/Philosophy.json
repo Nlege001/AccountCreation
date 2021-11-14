@@ -1,0 +1,20 @@
+{"Philosophy": [
+  {
+    "Faculty": "Philosophy",
+    "Name": "Dixon, Beth",
+    "Email": "dixonba@plattsburgh.edu",
+    "Title": "Professor/Chair"
+  },
+  {
+    "Faculty": "Philosophy",
+    "Name": "Liszka, James",
+    "Email": "jlisz001@plattsburgh.edu",
+    "Title": "Professor"
+  },
+  {
+    "Faculty": "Philosophy",
+    "Name": "Maier, Donald",
+    "Email": "maierdm@plattsburgh.edu",
+    "Title": "Associate Professor"
+  }
+]}

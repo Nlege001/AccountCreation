@@ -49,10 +49,10 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
 
 
         val departments = listOf<String>("Academic Advising", "Academic Affairs", "Accounting", "Admissions", "Adventure and Expeditionary Studies", "Africana Studies", "Anthropology",
-                "Art", "Art Museum", "Athletics and Recreation" , "Biological Sciences", "Canadian Studies" , "Career Development Center" , "Center for Neurobehavioral Health","Chemistry and Biochemistry" , "Communication Sciences & Disorders",
-                "Communication Studies" , "Computer Information Systems" , "Computer Science" , "Counseling & Human Services" , "Criminal Justice" , "ESL Program", "Earth & Environmental Science" , "Economics & Finance" , "English" , "Exercise and Nutrition Sciences"
-                , "Gender and Women's Studies" , "Geography" , "History" , "Human Development & Fam Relations" , "Institute for Ethics in Public Life" , "Interdisciplinary & Area Studies" , "Journalism and Public Relations" , "Lake Champlain Research Institution" ,
-                "Latin American Studies" , "Learning Center" , "Library & Information Tech Services","Management, Info Sys & Analytics" , "Marketing & Entrepreneurship" , "Mathematics" , "Modern Languages and Cultures" , "Music" , "Nursing" , "Philosophy" , "Physics" ,
+                "Art", "Art Museum", "Athletics and Recreation" , "Biological Sciences", "Canadian Studies" , "Career Development Center" , "Center for Neurobehavioral Health","Chemistry and Biochemistry" , "Communication Sciences and Disorders",
+                "Communication Studies" , "Computer Information Systems" , "Computer Science" , "Counseling and Human Services" , "Criminal Justice" , "ESL Program", "Earth and Environmental Science" , "Economics and Finance" , "English" , "Exercise and Nutrition Sciences"
+                , "Gender and Women's Studies" , "Geography" , "History" , "Human Development and Fam Relations" , "Institute for Ethics in Public Life" , "Interdisciplinary & Area Studies" , "Journalism and Public Relations" , "Lake Champlain Research Institution" ,
+                "Latin American Studies" , "Learning Center" , "Library and Information Tech Services","Management, Info Sys and Analytics" , "Marketing & Entrepreneurship" , "Mathematics" , "Modern Languages and Cultures" , "Music" , "Nursing" , "Philosophy" , "Physics" ,
                 "Political Science" , "Psychology" , "Sociology" , "Supply Chain Management & International Business" , "Teacher Education, Grad MSEd Program" , "Teacher Education, Undergraduate" , "Technology Enhanced Learning" , "Telecommunications" , "Theatre")
 
 
