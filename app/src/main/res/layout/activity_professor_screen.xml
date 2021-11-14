@@ -106,6 +106,7 @@
                 android:layout_marginStart="66dp"
                 android:layout_marginTop="131dp"
                 android:text="TextView"
+                android:autoLink="email"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

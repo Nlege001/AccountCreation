@@ -71,21 +71,18 @@ class DisplayUserInput : AppCompatActivity() {
         })
 
 
-
-
-
-
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_recycler_view, menu)
         val item = menu?.findItem(R.id.search_recycler)
         val searchViewRecycler = item?.actionView as SearchView
+        searchViewRecycler?.isSubmitButtonEnabled = true
+        searchViewRecycler.queryHint = "Professor Name"
         searchViewRecycler.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                TODO("Not yet implemented")
+                searchViewRecycler.clearFocus()
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
