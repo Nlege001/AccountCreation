@@ -81,10 +81,26 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
             }catch (e:JSONException){
                 e.printStackTrace()
             }
+
             tempFacultyList.addAll(facultyList)
             ListView.layoutManager = LinearLayoutManager(this)
-            val facultyAdapter = SearchListAdapter(this, tempFacultyList)
-            ListView.adapter = facultyAdapter
+
+            val clickAdapter = SearchListAdapter(this, tempFacultyList)
+
+            //val facultyAdapter = SearchListAdapter(this, tempFacultyList)
+            ListView.adapter = clickAdapter
+            clickAdapter.setOnItemClickListener(object : SearchListAdapter.onItemClickListener{
+                override fun onItemClick(position: Int) {
+                    val intent = Intent(this@SearchViewProfByNameActivity, ProfessorScreen::class.java )
+                    intent.putExtra("profName", tempFacultyList[position].Name)
+                    intent.putExtra("faculty", tempFacultyList[position].Facutly)
+                    intent.putExtra("email", tempFacultyList[position].Email)
+                    intent.putExtra("title", tempFacultyList[position].Title)
+                    startActivity(intent)
+
+                }
+
+            })
 
 
         }

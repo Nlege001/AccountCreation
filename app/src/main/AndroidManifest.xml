@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AccounttCreation">
         <activity
+            android:name=".ProfessorScreen"
+            android:exported="true" />
+        <activity
             android:name=".DisplayIndividualUserInput"
             android:exported="true" />
         <activity
