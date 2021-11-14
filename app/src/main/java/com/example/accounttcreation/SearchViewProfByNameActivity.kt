@@ -1,30 +1,18 @@
 package com.example.accounttcreation
 
-import android.content.ContentValues.TAG
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.JsonReader
-import android.util.Log
-import android.view.View
 import android.widget.*
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_search_view_prof_by_name.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
-import java.io.StringReader
 import java.nio.charset.Charset
 import java.util.*
 import kotlin.collections.ArrayList
@@ -43,6 +31,9 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
     //private val searchListAdapter = SearchListAdapter(searchList)
     lateinit var fileName: String
     private val facultyList : ArrayList<SearchViewByNameDataClass> = ArrayList()
+    private val tempFacultyList : ArrayList<SearchViewByNameDataClass> = ArrayList()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,22 +81,38 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
             }catch (e:JSONException){
                 e.printStackTrace()
             }
+            tempFacultyList.addAll(facultyList)
             ListView.layoutManager = LinearLayoutManager(this)
-            val facultyAdapter = SearchListAdapter(this, facultyList)
+            val facultyAdapter = SearchListAdapter(this, tempFacultyList)
             ListView.adapter = facultyAdapter
+
 
         }
 
         searchText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
+
+
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val searchValue : String = searchText.text.toString()
+                val searchValue : String = searchText.text.toString().lowercase()
+                if(searchValue.isNotEmpty()){
+                    tempFacultyList.clear()
+                    facultyList.forEach{
+                        if(it.Name.lowercase(Locale.getDefault())?.contains(searchValue)){
+                            tempFacultyList.add(it)
+                        }
+                    }
+                    ListView.adapter!!.notifyDataSetChanged()
+                }
+                else{
+                    tempFacultyList.clear()
+                    tempFacultyList.addAll(facultyList)
+                    ListView.adapter!!.notifyDataSetChanged()
 
-
-
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
