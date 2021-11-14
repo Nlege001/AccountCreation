@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AccounttCreation">
         <activity
+            android:name=".IndividualCommentDisplay"
+            android:exported="true" />
+        <activity
+            android:name=".IndividualProfessorCourseRating"
+            android:exported="true" />
+        <activity
             android:name=".ProfessorScreen"
             android:exported="true" />
         <activity

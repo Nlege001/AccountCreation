@@ -46,10 +46,6 @@ class DisplayAdapterClass(private val userList : ArrayList<DisplayDataClass>) : 
 
 
 
-
-
-
-
     }
 
     override fun getItemCount(): Int {

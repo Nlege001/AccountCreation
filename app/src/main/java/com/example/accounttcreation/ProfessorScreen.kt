@@ -42,6 +42,15 @@ class ProfessorScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
+        seeCourseAssessBtn.setOnClickListener {
+            val intent = Intent(this, IndividualProfessorCourseRating::class.java)
+            intent.putExtra("provide_name", profName.toString())
+            startActivity(intent)
+        }
+
+
+
+
 
     }
 }
