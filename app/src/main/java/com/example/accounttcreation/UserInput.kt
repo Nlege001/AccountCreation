@@ -17,6 +17,19 @@ class UserInput : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_input)
 
+        val bundle : Bundle ?= intent.extras
+        val name = bundle?.get("provide_name")
+        if(bundle != null){
+            ProfessorName.setText(name.toString())
+        }else{
+            ProfessorName.text.clear()
+
+        }
+
+
+
+
+
         uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
 
         savebutton_input.setOnClickListener {
