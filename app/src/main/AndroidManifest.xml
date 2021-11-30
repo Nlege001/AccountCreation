@@ -11,7 +11,8 @@
         android:theme="@style/Theme.AccounttCreation">
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -21,8 +22,7 @@
 
         <activity
             android:name=".IndividualCommentDisplay"
-            android:exported="true"
-            android:theme="@style/SplashActivity"/>
+            android:exported="true" />
         <activity
             android:name=".IndividualProfessorCourseRating"
             android:exported="true" />
