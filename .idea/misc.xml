@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_search_view_prof_by_name.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_user_input.xml" value="0.33" />
         <entry key="app/src/main/res/layout/cardview_indiviudal_course_rating.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/content_profile.xml" value="0.20520833333333333" />
