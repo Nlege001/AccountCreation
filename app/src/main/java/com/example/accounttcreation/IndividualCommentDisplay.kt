@@ -2,7 +2,10 @@ package com.example.accounttcreation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_profile.*
 import org.w3c.dom.Text
 
 class IndividualCommentDisplay : AppCompatActivity() {
@@ -18,6 +21,8 @@ class IndividualCommentDisplay : AppCompatActivity() {
         val individual_grade = findViewById<TextView>(R.id.individual_input_grade)
         val individual_comment = findViewById<TextView>(R.id.individual_input_comments)
         val individual_email = findViewById<TextView>(R.id.individual_inputProvider_email)
+        val individual_profilePic = findViewById<ImageView>(R.id.individual_show_inputProvider_picture)
+
 
         val bundle: Bundle ?= intent.extras
 
@@ -29,6 +34,7 @@ class IndividualCommentDisplay : AppCompatActivity() {
         val grade = bundle?.get("grade")
         val comments = bundle?.get("comments")
         val email = bundle?.get("email")
+        val profilePicURL = bundle?.get("profilePicURL")
 
 
 
@@ -42,6 +48,9 @@ class IndividualCommentDisplay : AppCompatActivity() {
         individual_grade.text = grade.toString()
         individual_comment.text = comments.toString()
         individual_email.text = email.toString()
+        Glide.with(this).load(profilePicURL).into(individual_profilePic)
+
+
 
 
 

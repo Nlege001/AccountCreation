@@ -26,12 +26,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0">
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/AssessmentView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="124dp"
+                android:layout_height="53dp"
                 android:layout_marginTop="192dp"
+                android:background="@drawable/custom_button"
                 android:text="See Assessments"
+                android:textAllCaps="false"
+                android:textColor="#fff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="259dp"
             android:layout_marginBottom="32dp"
-            android:text="You have signed in Successfully"
+            android:text="You have no signed in Successfully"
             app:layout_constraintBottom_toTopOf="@+id/MainEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
