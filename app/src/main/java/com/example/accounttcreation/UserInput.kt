@@ -1,9 +1,11 @@
 package com.example.accounttcreation
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -11,6 +13,9 @@ import kotlinx.android.synthetic.main.activity_user_input.*
 
 class UserInput : AppCompatActivity() {
     private lateinit var uid : String
+    private lateinit var url : String
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +36,13 @@ class UserInput : AppCompatActivity() {
 
 
         uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        val storage = FirebaseStorage.getInstance().reference.child("pics/$uid")
+        storage.downloadUrl.addOnSuccessListener { result ->
+            url = result.toString()
+
+        }
+
+
 
         savebutton_input.setOnClickListener {
             val proffessor = ProfessorName.text.toString()
@@ -41,7 +53,7 @@ class UserInput : AppCompatActivity() {
             val grade = Grade.text.toString()
             val comments = Comments.text.toString()
             val email : String = FirebaseAuth.getInstance().currentUser?.email.toString()
-            val downloadURLPath : String = FirebaseStorage.getInstance().reference.child("pics/$uid").path
+            val downloadURLPath : String = url
 
 
             saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, downloadURLPath, email)
@@ -54,7 +66,7 @@ class UserInput : AppCompatActivity() {
         }
     }
 
-    fun saveFireStore(proffessor: String, courseNumber : String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH:String , email:String){
+    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String){
         val db = FirebaseFirestore.getInstance()
         val Input : MutableMap<String,Any> = HashMap()
         Input["proffessor"] = proffessor
