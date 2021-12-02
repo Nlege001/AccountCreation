@@ -64,6 +64,7 @@ class DisplayUserInput : AppCompatActivity() {
                 intent.putExtra("grade", tempArrayList[position].grade)
                 intent.putExtra("comments", tempArrayList[position].comments)
                 intent.putExtra("email", tempArrayList[position].email)
+                intent.putExtra("profilePic", tempArrayList[position].downloadURLPATH)
                 startActivity(intent)
 
             }

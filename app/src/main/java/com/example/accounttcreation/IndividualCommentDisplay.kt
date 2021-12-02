@@ -48,7 +48,10 @@ class IndividualCommentDisplay : AppCompatActivity() {
         individual_grade.text = grade.toString()
         individual_comment.text = comments.toString()
         individual_email.text = email.toString()
-        Glide.with(this).load(profilePicURL).into(individual_profilePic)
+        if(profilePicURL.toString().isNotEmpty()){
+            Glide.with(this).load(profilePicURL).into(individual_profilePic)
+        }
+
 
 
 
