@@ -37,6 +37,10 @@ class IndividualCommentAdapter(private val userList : ArrayList<IndividualCourse
         holder.comments.text = input.comments
         holder.email.text = input.email
 
+        val downloadURLPATH = input.downloadURLPATH
+        Glide.with(holder.itemView.context).load(downloadURLPATH).into(holder.profilePic)
+
+
 
     }
 
