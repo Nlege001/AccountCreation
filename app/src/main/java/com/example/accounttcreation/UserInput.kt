@@ -22,6 +22,17 @@ class UserInput : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_input)
 
+
+        ratingBar.rating = 2.5f
+        ratingBar.stepSize = 0.5f
+        textViewRating.text = 2.5f.toString()
+        ratingBar.setOnRatingBarChangeListener{ratingBar, rating, fromUser ->
+            textViewRating.text = rating.toString()
+
+        }
+
+
+
         val bundle : Bundle ?= intent.extras
         val name = bundle?.get("provide_name")
         if(bundle != null){
@@ -49,7 +60,7 @@ class UserInput : AppCompatActivity() {
             val courseNumber = CourseNumber.text.toString()
             val semester = Semster.text.toString()
             val difficulty = Difficulty.text.toString()
-            val courseRating = CourseRating.text.toString()
+            val courseRating = textViewRating.text.toString()
             val grade = Grade.text.toString()
             val comments = Comments.text.toString()
             val email : String = FirebaseAuth.getInstance().currentUser?.email.toString()
