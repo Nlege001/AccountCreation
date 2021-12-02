@@ -2,7 +2,9 @@ package com.example.accounttcreation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 
 class DisplayIndividualUserInput : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +19,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
         val inputCourseDiffuculty : TextView = findViewById(R.id.input_difficulty)
         val inputCourseGrade : TextView = findViewById(R.id.input_grade)
         val inputComments : TextView = findViewById(R.id.input_comments)
+        val inputProfilePic : ImageView = findViewById(R.id.show_inputProvider_picture)
 
 
         val bundle : Bundle ?= intent.extras
@@ -29,6 +32,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
         val grade = bundle?.get("grade")
         val comments = bundle?.get("comments")
         val email = bundle?.get("email")
+        val profilePicURL = bundle?.get("profilePic")
 
 
         inputProvider_email.text = email.toString()
@@ -39,6 +43,9 @@ class DisplayIndividualUserInput : AppCompatActivity() {
         inputCourseDiffuculty.text = difficulty.toString()
         inputCourseGrade.text = grade.toString()
         inputComments.text = comments.toString()
+        if(profilePicURL.toString().isNotEmpty()){
+            Glide.with(this).load(profilePicURL).into(inputProfilePic)
+        }
 
 
 
