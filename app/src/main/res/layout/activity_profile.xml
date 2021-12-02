@@ -69,7 +69,8 @@
                 android:drawablePadding="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 app:drawableLeftCompat="@drawable/email_ic"
-                android:text="Change email" />
+                android:textSize="23dp"
+                android:text="Change Profile Picture" />
 
             <TextView
                 android:id="@+id/change_password"

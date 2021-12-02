@@ -14,7 +14,7 @@
         <entry key="app/src/main/res/layout/activity_individual_professor_course_rating.xml" value="0.11927083333333334" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.32679738562091504" />
         <entry key="app/src/main/res/layout/activity_recycle_view_db.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
@@ -35,7 +35,7 @@
         <entry key="app/src/main/res/layout/layout_search_list.xml" value="0.2717391304347826" />
         <entry key="app/src/main/res/layout/list_item_display.xml" value="0.5" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.240625" />
-        <entry key="app/src/main/res/layout/nav_profile_header.xml" value="0.294238683127572" />
+        <entry key="app/src/main/res/layout/nav_profile_header.xml" value="0.1" />
         <entry key="app/src/main/res/layout/semester_dropdown_selection.xml" value="0.225" />
         <entry key="app/src/main/res/layout/year_dropdown_selection.xml" value="0.20471014492753623" />
         <entry key="app/src/main/res/menu/menu_scrolling.xml" value="0.2171875" />
