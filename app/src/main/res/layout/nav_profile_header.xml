@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="0dp"
@@ -7,34 +9,36 @@
     android:background="@color/purple_500"
     android:orientation="vertical">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
-        android:layout_width="126dp"
-        android:layout_height="117dp"
-        android:src="@drawable/profile_icon" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="331dp"
+        android:layout_height="202dp">
 
 
-    <TextView
-        android:id="@+id/emailNav"
-        android:layout_width="match_parent"
-        android:layout_height="13dp"
-        android:padding="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textColor="@color/white"
-        android:textSize="80dp"
-        android:textStyle="bold" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="126dp"
+            android:layout_height="117dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/profile_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/NavDrawerText"
-        android:layout_width="314dp"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:text="TextView" />
+        <TextView
+            android:id="@+id/NavDrawerText"
+            android:layout_width="315dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="148dp"
+            android:baselineAligned="false"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="30dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
