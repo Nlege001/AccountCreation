@@ -184,8 +184,8 @@ class UserInput : AppCompatActivity() {
                     val email: String = FirebaseAuth.getInstance().currentUser?.email.toString()
                     val downloadURLPath: String = url
                     val UID : String = FirebaseAuth.getInstance().uid.toString()
-                    val likeCount = "0"
-                    val dislikeCount = "0"
+                    val likeCount = 0
+                    val dislikeCount = 0
 
 
                     saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, downloadURLPath, email, UID, likeCount, dislikeCount)
@@ -200,7 +200,7 @@ class UserInput : AppCompatActivity() {
         }
     }
 
-    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String, UID:String, likeCount : String, dislikeCount : String){
+    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String, UID:String, likeCount : Int, dislikeCount : Int){
         val db = FirebaseFirestore.getInstance()
         val Input : MutableMap<String,Any> = HashMap()
         Input["proffessor"] = proffessor

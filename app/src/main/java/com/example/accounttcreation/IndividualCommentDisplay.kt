@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_individual_comment_display.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import org.w3c.dom.Text
@@ -36,6 +37,13 @@ class IndividualCommentDisplay : AppCompatActivity() {
         val comments = bundle?.get("comments")
         val email = bundle?.get("email")
         val profilePicURL = bundle?.get("profilePicURL")
+        val likeCount  = bundle?.get("likeCount")
+        val dislikeCount = bundle?.get("dislikeCount")
+
+        var likeCountButton = likeCount as Int
+        var dislikeCountButton = dislikeCount as Int
+
+
 
 
 
@@ -49,22 +57,41 @@ class IndividualCommentDisplay : AppCompatActivity() {
         individual_grade.text = grade.toString()
         individual_comment.text = comments.toString()
         individual_email.text = email.toString()
+        like_count.text = likeCountButton.toString()
+        dislike_count.text = dislikeCountButton.toString()
         if(profilePicURL.toString().isNotEmpty()){
             Glide.with(this).load(profilePicURL).into(individual_profilePic)
         }
 
         var clickLikeAmount = 0
         var clickDisLikeAmount = 0
+        val db = FirebaseFirestore.getInstance()
+        val query = db.collection("Input").get()
 
         like_button.setOnClickListener{
             clickLikeAmount += 1
             if (clickLikeAmount % 2 != 0) {
                 like_button.setImageResource(R.drawable.ic_baseline_thumb_up_25)
                 dislike_button.isClickable = false
+                likeCountButton += 1
+                query.addOnSuccessListener {
+                    for(document in it){
+                        db.collection("Input").document(document.id).update("likeCount", likeCountButton)
+                    }
+                }
+                like_count.text = likeCountButton.toString()
+
             }
             else if (clickLikeAmount % 2 == 0){
                 like_button.setImageResource(R.drawable.ic_baseline_thumb_up_24)
                 dislike_button.isClickable = true
+                likeCountButton -= 1
+                query.addOnSuccessListener {
+                    for(document in it){
+                        db.collection("Input").document(document.id).update("likeCount", likeCountButton)
+                    }
+                }
+                like_count.text = likeCountButton.toString()
             }
         }
 
@@ -74,10 +101,25 @@ class IndividualCommentDisplay : AppCompatActivity() {
             if (clickDisLikeAmount % 2 != 0) {
                 dislike_button.setImageResource(R.drawable.ic_baseline_thumb_down_25)
                 like_button.isClickable = false
+                dislikeCountButton += 1
+                query.addOnSuccessListener {
+                    for(document in it){
+                        db.collection("Input").document(document.id).update("dislikeCount", dislikeCountButton)
+                    }
+                }
+                dislike_count.text = dislikeCountButton.toString()
+
             }
             else if (clickDisLikeAmount % 2 == 0){
                 dislike_button.setImageResource(R.drawable.ic_baseline_thumb_down_24)
                 like_button.isClickable = true
+                dislikeCountButton -= 1
+                query.addOnSuccessListener {
+                    for(document in it){
+                        db.collection("Input").document(document.id).update("dislikeCount", dislikeCountButton)
+                    }
+                }
+                dislike_count.text = dislikeCountButton.toString()
             }
         }
 
