@@ -9,7 +9,10 @@ data class DisplayDataClass(
     val grade:String ?=null,
     val comments:String ?=null,
     val email: String ?=null,
-    val downloadURLPATH : String ?= null){
+    val downloadURLPATH : String ?= null,
+    val likeCount : Int ?= null,
+    val dislikeCount : Int ?= null
+){
     operator fun get(input : Int): String? {
         return this.downloadURLPATH
 
