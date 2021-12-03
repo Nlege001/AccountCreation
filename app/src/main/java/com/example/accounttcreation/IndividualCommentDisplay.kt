@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_individual_comment_display.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import org.w3c.dom.Text
 
@@ -51,6 +52,35 @@ class IndividualCommentDisplay : AppCompatActivity() {
         if(profilePicURL.toString().isNotEmpty()){
             Glide.with(this).load(profilePicURL).into(individual_profilePic)
         }
+
+        var clickLikeAmount = 0
+        var clickDisLikeAmount = 0
+
+        like_button.setOnClickListener{
+            clickLikeAmount += 1
+            if (clickLikeAmount % 2 != 0) {
+                like_button.setImageResource(R.drawable.ic_baseline_thumb_up_25)
+                dislike_button.isClickable = false
+            }
+            else if (clickLikeAmount % 2 == 0){
+                like_button.setImageResource(R.drawable.ic_baseline_thumb_up_24)
+                dislike_button.isClickable = true
+            }
+        }
+
+
+        dislike_button.setOnClickListener {
+            clickDisLikeAmount += 1
+            if (clickDisLikeAmount % 2 != 0) {
+                dislike_button.setImageResource(R.drawable.ic_baseline_thumb_down_25)
+                like_button.isClickable = false
+            }
+            else if (clickDisLikeAmount % 2 == 0){
+                dislike_button.setImageResource(R.drawable.ic_baseline_thumb_down_24)
+                like_button.isClickable = true
+            }
+        }
+
 
 
 
