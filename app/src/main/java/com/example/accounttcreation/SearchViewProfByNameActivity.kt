@@ -16,6 +16,10 @@ import java.io.IOException
 import java.nio.charset.Charset
 import java.util.*
 import kotlin.collections.ArrayList
+import android.widget.EditText
+
+
+
 
 //https://www.youtube.com/watch?v=2z0HlIY7M9s
 class SearchViewProfByNameActivity : AppCompatActivity() {
@@ -39,6 +43,12 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_view_prof_by_name)
 
+        Toast.makeText(
+            this@SearchViewProfByNameActivity,
+            "Start by selecting a department",
+            Toast.LENGTH_LONG
+        ).show()
+
 
 
         searchText = findViewById(R.id.ProfName_SearchView)
@@ -60,6 +70,8 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
         val autoCompleteDepartmentDropDown = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         autoCompleteDepartmentDropDown.setAdapter(arrayAdapter)
         var itemSelected = "" //TODO :: TAKE THE PATH
+        searchText.isEnabled = false
+        var focusVal = 0
         autoCompleteDepartmentDropDown.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             itemSelected = parent.getItemAtPosition(position).toString()
             fileName = "$itemSelected.json"
@@ -76,16 +88,23 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
 
                     val facultyDetails = SearchViewByNameDataClass(name, faculty, email, title)
                     facultyList.add(facultyDetails)
+                    focusVal = 1
 
                 }
             }catch (e:JSONException){
                 e.printStackTrace()
             }
 
+
             tempFacultyList.addAll(facultyList)
+            if (focusVal == 1){
+                searchText.isEnabled = true
+            }
+
             ListView.layoutManager = LinearLayoutManager(this)
 
             val clickAdapter = SearchListAdapter(this, tempFacultyList)
+
 
             //val facultyAdapter = SearchListAdapter(this, tempFacultyList)
             ListView.adapter = clickAdapter
@@ -135,6 +154,19 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
 
             }
         })
+        clearButton.setOnClickListener{
+            ProfName_SearchView.text.clear()
+            autoCompleteDepartmentDropDown.text.clear()
+            itemSelected = ""
+            tempFacultyList.clear()
+            ListView.adapter!!.notifyDataSetChanged()
+            Toast.makeText(
+                this@SearchViewProfByNameActivity,
+                "Select a department",
+                Toast.LENGTH_LONG
+            ).show()
+
+        }
 
 
 

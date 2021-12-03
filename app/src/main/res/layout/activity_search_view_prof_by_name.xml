@@ -14,22 +14,22 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="42dp"
-        android:layout_marginTop="153dp"
+        android:layout_marginTop="195dp"
         android:ems="10"
         android:hint="Proffessor Name"
         android:inputType="textPersonName" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ListView"
-        android:layout_width="347dp"
-        android:layout_height="482dp"
+        android:layout_width="350dp"
+        android:layout_height="446dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="242dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginBottom="16dp"
         android:scrollbars="vertical" />
 
     <ImageView
@@ -56,8 +56,25 @@
             android:layout_width="match_parent"
             android:layout_height="61dp"
             android:layout_weight="1"
-            android:inputType="none"
+            android:editable="false"
             android:text="Select Department" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/clearButton"
+            android:layout_width="44dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="341dp"
+            android:layout_marginTop="143dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/clear" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </RelativeLayout>
