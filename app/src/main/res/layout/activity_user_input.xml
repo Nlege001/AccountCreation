@@ -116,12 +116,14 @@
                 android:id="@+id/semesterInputDropDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:editable="false"
                 android:layout_weight="1"
                 android:text="Semester" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/yearInputDropDownText"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,6 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:editable="false"
                 android:text="Year" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -153,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:editable="false"
                 android:text="Course Difficulty" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -170,6 +174,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:editable="false"
                 android:text="Grade" />
         </com.google.android.material.textfield.TextInputLayout>
 

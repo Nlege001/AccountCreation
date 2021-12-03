@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_individual_comment_display.*
 import kotlinx.android.synthetic.main.activity_user_input.*
 
 class UserInput : AppCompatActivity() {
@@ -53,9 +54,19 @@ class UserInput : AppCompatActivity() {
         autoCompleteYearDropDown.setAdapter(yearArrayAdapter)
         var itemSelectedYear = ""
         autoCompleteYearDropDown.onItemClickListener = AdapterView.OnItemClickListener{parent, view, position, id ->
-            itemSelectedYear = parent.getItemAtPosition(position).toString()
-            semesterSelected += " $itemSelectedYear"
-            autoCompleteYearDropDown.dismissDropDown()
+            if(!this::semesterSelected.isInitialized){
+                Toast.makeText(
+                    this@UserInput,
+                    "Please select semester first",
+                    Toast.LENGTH_SHORT
+                ).show()
+                autoCompleteYearDropDown.text.clear()
+            }else{
+                itemSelectedYear = parent.getItemAtPosition(position).toString()
+                semesterSelected += " $itemSelectedYear"
+                autoCompleteYearDropDown.dismissDropDown()
+            }
+
         }
 
         val difficulty = listOf<String>("Easy", "Normal", "Above Average", "Hard")
@@ -172,9 +183,12 @@ class UserInput : AppCompatActivity() {
                     val comments = Comments.text.toString()
                     val email: String = FirebaseAuth.getInstance().currentUser?.email.toString()
                     val downloadURLPath: String = url
+                    val UID : String = FirebaseAuth.getInstance().uid.toString()
+                    val likeCount = "0"
+                    val dislikeCount = "0"
 
 
-                    saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, downloadURLPath, email)
+                    saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, downloadURLPath, email, UID, likeCount, dislikeCount)
 
                     startActivity(Intent(this, MainActivity::class.java))
                 }
@@ -186,7 +200,7 @@ class UserInput : AppCompatActivity() {
         }
     }
 
-    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String){
+    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String, UID:String, likeCount : String, dislikeCount : String){
         val db = FirebaseFirestore.getInstance()
         val Input : MutableMap<String,Any> = HashMap()
         Input["proffessor"] = proffessor
@@ -198,6 +212,9 @@ class UserInput : AppCompatActivity() {
         Input["comments"] =comments
         Input["downloadURLPATH"] = downloadURLPATH
         Input["email"] = email
+        Input["UID"] = UID
+        Input["likeCount"] = likeCount
+        Input["dislikeCount"] = dislikeCount
 
         db.collection("Input")
             .add(Input)
