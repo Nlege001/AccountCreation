@@ -5,6 +5,7 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/drawable/custom_button.xml" value="0.2601851851851852" />
         <entry key="app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/drawable/ic_baseline_thumb_up_25.xml" value="0.2784615384615385" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3104166666666667" />
@@ -14,7 +15,7 @@
         <entry key="app/src/main/res/layout/activity_account.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_display_individual_user_input.xml" value="0.18342391304347827" />
         <entry key="app/src/main/res/layout/activity_display_user_input.xml" value="0.221875" />
-        <entry key="app/src/main/res/layout/activity_individual_comment_display.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_individual_comment_display.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_individual_professor_course_rating.xml" value="0.11927083333333334" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
