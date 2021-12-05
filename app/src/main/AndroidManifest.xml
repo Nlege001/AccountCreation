@@ -55,10 +55,12 @@
             android:exported="true" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"/>
         <activity
             android:name=".LogInActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AccounttCreation.NoActionBar">
         </activity>
         <activity
             android:name=".MainActivity"
