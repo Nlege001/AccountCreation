@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -26,7 +27,7 @@ class RegisterActivity : AppCompatActivity() {
         var button = findViewById<Button>(R.id.SignUpButton)
         var email = findViewById<EditText>(R.id.RegisterEmail)
         var password = findViewById<EditText>(R.id.RegisterPassword)
-        val button2 = findViewById<Button>(R.id.login2)
+        val button2 = findViewById<TextView>(R.id.login2)
 
         button2.setOnClickListener {
             onBackPressed()
