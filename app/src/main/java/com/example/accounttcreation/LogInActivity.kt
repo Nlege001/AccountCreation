@@ -17,12 +17,12 @@ class LogInActivity : AppCompatActivity() {
         setContentView(R.layout.activity_log_in)
 
 
-        val button_register = findViewById<Button>(R.id.RegisterButton2)
+        val button_register = findViewById<TextView>(R.id.RegisterButton2)
         var button = findViewById<Button>(R.id.button)
         var email = findViewById<EditText>(R.id.LogInUserName)
         var password = findViewById<EditText>(R.id.LogInPassword)
         val button2 = findViewById<Button>(R.id.login2)
-        var resetBtn = findViewById<Button>(R.id.ResetPasswordButton)
+        var resetBtn = findViewById<TextView>(R.id.ResetPasswordButton)
 
 
         resetBtn.setOnClickListener {
