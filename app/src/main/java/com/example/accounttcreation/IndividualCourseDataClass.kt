@@ -11,7 +11,8 @@ data class IndividualCourseDataClass(
     val email: String ?=null,
     val downloadURLPATH : String ?= null,
     val likeCount : Int ?= null,
-    val dislikeCount : Int ?= null
+    val dislikeCount : Int ?= null,
+    val docId : String ?= null
 ) {
 
 }

@@ -58,6 +58,7 @@ class IndividualProfessorCourseRating : AppCompatActivity() {
                 intent.putExtra("profilePicURL", tempArrayList[position].downloadURLPATH)
                 intent.putExtra("likeCount", tempArrayList[position].likeCount)
                 intent.putExtra("dislikeCount", tempArrayList[position].dislikeCount)
+                intent.putExtra("docId", tempArrayList[position].docId)
                 startActivity(intent)
             }
         })
