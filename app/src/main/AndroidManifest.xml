@@ -49,7 +49,8 @@
             android:exported="true" />
         <activity
             android:name=".ResetPassword"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"/>
         <activity
             android:name=".RecycleViewDB"
             android:exported="true" />
