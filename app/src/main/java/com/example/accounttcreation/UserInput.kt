@@ -13,8 +13,11 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import io.grpc.inprocess.InProcessChannelBuilder
 import kotlinx.android.synthetic.main.activity_individual_comment_display.*
 import kotlinx.android.synthetic.main.activity_user_input.*
+import java.util.*
+import kotlin.collections.HashMap
 
 class UserInput : AppCompatActivity() {
     private lateinit var uid : String
@@ -186,9 +189,10 @@ class UserInput : AppCompatActivity() {
                     val UID : String = FirebaseAuth.getInstance().uid.toString()
                     val likeCount = 0
                     val dislikeCount = 0
+                    val docId = UUID.randomUUID().toString()
 
 
-                    saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, downloadURLPath, email, UID, likeCount, dislikeCount)
+                    saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, downloadURLPath, email, UID, likeCount, dislikeCount, docId)
 
                     startActivity(Intent(this, MainActivity::class.java))
                 }
@@ -200,7 +204,7 @@ class UserInput : AppCompatActivity() {
         }
     }
 
-    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String, UID:String, likeCount : Int, dislikeCount : Int){
+    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String, UID:String, likeCount : Int, dislikeCount : Int, docId: String){
         val db = FirebaseFirestore.getInstance()
         val Input : MutableMap<String,Any> = HashMap()
         Input["proffessor"] = proffessor
@@ -215,6 +219,7 @@ class UserInput : AppCompatActivity() {
         Input["UID"] = UID
         Input["likeCount"] = likeCount
         Input["dislikeCount"] = dislikeCount
+        Input["docId"] = docId
 
         db.collection("Input")
             .add(Input)

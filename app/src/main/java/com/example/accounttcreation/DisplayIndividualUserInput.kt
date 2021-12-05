@@ -1,7 +1,9 @@
 package com.example.accounttcreation
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -12,6 +14,8 @@ class DisplayIndividualUserInput : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display_individual_user_input)
+
+        listenToLikesAndDislikes()
 
         val inputProvider_email : TextView = findViewById(R.id.inputProvider_email)
         val inputProfName : TextView = findViewById(R.id.input_profName)
@@ -37,9 +41,12 @@ class DisplayIndividualUserInput : AppCompatActivity() {
         val profilePicURL = bundle?.get("profilePic")
         val likeCount  = bundle?.get("likeCount")
         val dislikeCount = bundle?.get("dislikeCount")
+        val docId = bundle?.get("docId")
 
         var likeCountButton = likeCount as Int
         var dislikeCountButton = dislikeCount as Int
+        val documentId = docId as String
+
 
 
         inputProvider_email.text = email.toString()
@@ -69,7 +76,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
                 likeCountButton += 1
                 query.addOnSuccessListener {
                     for(document in it){
-                        db.collection("Input").document(document.id).update("likeCount", likeCountButton)
+                        db.collection("Input").document(documentId).update("likeCount", likeCountButton)
                     }
                 }
                 like_count.text = likeCountButton.toString()
@@ -81,7 +88,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
                 likeCountButton -= 1
                 query.addOnSuccessListener {
                     for(document in it){
-                        db.collection("Input").document(document.id).update("likeCount", likeCountButton)
+                        db.collection("Input").document(documentId).update("likeCount", likeCountButton)
                     }
                 }
                 like_count.text = likeCountButton.toString()
@@ -97,7 +104,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
                 dislikeCountButton += 1
                 query.addOnSuccessListener {
                     for(document in it){
-                        db.collection("Input").document(document.id).update("dislikeCount", dislikeCountButton)
+                        db.collection("Input").document(documentId).update("dislikeCount", dislikeCountButton)
                     }
                 }
                 dislike_count.text = dislikeCountButton.toString()
@@ -109,7 +116,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
                 dislikeCountButton -= 1
                 query.addOnSuccessListener {
                     for(document in it){
-                        db.collection("Input").document(document.id).update("dislikeCount", dislikeCountButton)
+                        db.collection("Input").document(documentId).update("dislikeCount", dislikeCountButton)
                     }
                 }
                 dislike_count.text = dislikeCountButton.toString()
@@ -121,5 +128,20 @@ class DisplayIndividualUserInput : AppCompatActivity() {
 
 
 
+    }
+
+    private fun listenToLikesAndDislikes(){
+        FirebaseFirestore.getInstance().collection("Input").addSnapshotListener { snapshot, error ->
+            if(snapshot != null){
+                val Inputs = ArrayList<DisplayDataClass>()
+                val documents = snapshot.documents
+                documents.forEach{
+                    val individualInput = it.toObject(DisplayDataClass::class.java)
+                    if(individualInput != null){
+                        FirebaseFirestore.getInstance().collection("Input").document(it.id).update("docId", it.id)
+                    }
+                }
+            }
+        }
     }
 }
