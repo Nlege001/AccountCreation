@@ -34,7 +34,8 @@
             android:exported="true" />
         <activity
             android:name=".SearchViewProfByNameActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"/>
         <activity
             android:name=".ProfileActivity"
             android:configChanges="orientation|screenSize"

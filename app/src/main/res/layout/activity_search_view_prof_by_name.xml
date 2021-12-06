@@ -26,8 +26,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ListView"
-        android:layout_width="350dp"
-        android:layout_height="446dp"
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
@@ -35,17 +35,8 @@
         android:layout_marginStart="42dp"
         android:layout_marginTop="269dp"
         android:layout_marginBottom="16dp"
-        android:scrollbars="vertical" />
-
-    <ImageView
-        android:id="@+id/backbutton_searchview"
-        android:layout_width="55dp"
-        android:layout_height="52dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="0dp"
-        android:src="@drawable/backbutton" />
+        android:scrollbars="vertical"
+        android:background="@drawable/custom_icon_buttons"/>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -63,22 +54,59 @@
             android:layout_weight="1"
             android:editable="false"
             android:text="Select Department" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <ImageButton
             android:id="@+id/clearButton"
-            android:layout_width="44dp"
+            android:layout_width="49dp"
             android:layout_height="35dp"
-            android:layout_marginStart="341dp"
-            android:layout_marginTop="143dp"
+            android:layout_marginStart="332dp"
+            android:layout_marginTop="144dp"
             android:background="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/clear" />
+
+        <ImageView
+            android:id="@+id/provideAssessment"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_icon_buttons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_input_24" />
+
+        <ImageView
+            android:id="@+id/seeAssessment"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_icon_buttons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/find_assessment" />
+
+        <ImageView
+            android:id="@+id/backbutton_searchview"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/custom_icon_buttons"
+            android:padding="2dp"
+            android:src="@drawable/logo_without_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -57,6 +57,14 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
+        seeAssessment.setOnClickListener {
+            startActivity(Intent(this, DisplayUserInput::class.java))
+        }
+
+        provideAssessment.setOnClickListener {
+            startActivity(Intent(this, UserInput::class.java))
+        }
+
 
         val departments = listOf<String>("Academic Advising", "Academic Affairs", "Accounting", "Admissions", "Adventure and Expeditionary Studies", "Africana Studies", "Anthropology",
                 "Art", "Art Museum", "Athletics and Recreation" , "Biological Sciences", "Canadian Studies" , "Career Development Center" , "Center for Neurobehavioral Health","Chemistry and Biochemistry" , "Communication Sciences and Disorders",
