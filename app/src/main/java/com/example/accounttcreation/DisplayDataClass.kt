@@ -12,7 +12,8 @@ data class DisplayDataClass(
     val downloadURLPATH : String ?= null,
     val likeCount : Int ?= null,
     val dislikeCount : Int ?= null,
-    val docId : String ?= null
+    val docId : String ?= null,
+    val courseName : String ?= null
 
 ){
     operator fun get(input : Int): String? {

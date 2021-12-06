@@ -8,7 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_display_individual_user_input.*
 import kotlinx.android.synthetic.main.activity_individual_comment_display.*
+import kotlinx.android.synthetic.main.activity_individual_comment_display.dislike_button
+import kotlinx.android.synthetic.main.activity_individual_comment_display.dislike_count
+import kotlinx.android.synthetic.main.activity_individual_comment_display.like_button
+import kotlinx.android.synthetic.main.activity_individual_comment_display.like_count
 
 class DisplayIndividualUserInput : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +47,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
         val likeCount  = bundle?.get("likeCount")
         val dislikeCount = bundle?.get("dislikeCount")
         val docId = bundle?.get("docId")
+        val courseName = bundle?.get("courseName")
 
         var likeCountButton = likeCount as Int
         var dislikeCountButton = dislikeCount as Int
@@ -59,6 +65,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
         inputComments.text = comments.toString()
         like_count.text = likeCountButton.toString()
         dislike_count.text = dislikeCountButton.toString()
+        input_courseName.text = courseName.toString()
         if(profilePicURL.toString().isNotEmpty()){
             Glide.with(this).load(profilePicURL).into(inputProfilePic)
         }

@@ -39,8 +39,8 @@
             android:id="@+id/CourseNumber"
             android:layout_width="123dp"
             android:layout_height="53dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="168dp"
+            android:layout_marginStart="244dp"
+            android:layout_marginTop="176dp"
             android:ems="10"
             android:hint="CRN"
             android:inputType="textPersonName"
@@ -116,8 +116,8 @@
                 android:id="@+id/semesterInputDropDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:editable="false"
                 android:layout_weight="1"
+                android:editable="false"
                 android:text="Semester" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -177,6 +177,18 @@
                 android:editable="false"
                 android:text="Grade" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:id="@+id/courseNameInput"
+            android:layout_width="208dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="177dp"
+            android:ems="10"
+            android:hint="Course Name"
+            android:inputType="textEmailAddress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

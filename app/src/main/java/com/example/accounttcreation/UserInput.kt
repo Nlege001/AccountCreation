@@ -128,6 +128,13 @@ class UserInput : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                TextUtils.isEmpty(courseNameInput.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        this@UserInput,
+                        "Please Provide course name",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
                 TextUtils.isEmpty(CourseNumber.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@UserInput,
@@ -190,9 +197,10 @@ class UserInput : AppCompatActivity() {
                     val likeCount = 0
                     val dislikeCount = 0
                     val docId = UUID.randomUUID().toString()
+                    val courseName = courseNameInput.text.toString()
 
 
-                    saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, downloadURLPath, email, UID, likeCount, dislikeCount, docId)
+                    saveFireStore(proffessor, courseNumber, semester, difficulty, courseRating, grade, comments, downloadURLPath, email, UID, likeCount, dislikeCount, docId, courseName)
 
                     startActivity(Intent(this, MainActivity::class.java))
                 }
@@ -204,7 +212,7 @@ class UserInput : AppCompatActivity() {
         }
     }
 
-    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String, UID:String, likeCount : Int, dislikeCount : Int, docId: String){
+    fun saveFireStore(proffessor: String, courseNumber: String, semester: String, difficulty:String, courseRating:String, grade:String, comments:String, downloadURLPATH: String, email:String, UID:String, likeCount : Int, dislikeCount : Int, docId: String, courseName: String){
         val db = FirebaseFirestore.getInstance()
         val Input : MutableMap<String,Any> = HashMap()
         Input["proffessor"] = proffessor
@@ -220,6 +228,7 @@ class UserInput : AppCompatActivity() {
         Input["likeCount"] = likeCount
         Input["dislikeCount"] = dislikeCount
         Input["docId"] = docId
+        Input["courseName"] = courseName
 
         db.collection("Input")
             .add(Input)
