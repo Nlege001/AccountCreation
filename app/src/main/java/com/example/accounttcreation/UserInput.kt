@@ -32,6 +32,16 @@ class UserInput : AppCompatActivity() {
         setContentView(R.layout.activity_user_input)
 
 
+
+        home_button.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        see_assessment_button.setOnClickListener {
+            startActivity(Intent(this, DisplayUserInput::class.java))
+        }
+
+
         ratingBar.rating = 2.5f
         ratingBar.stepSize = 0.5f
         textViewRating.text = 2.5f.toString()
