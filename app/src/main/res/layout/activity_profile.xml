@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/layoutHead"
+            android:id="@+id/profile_backbtn"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@color/purple_500">
@@ -40,71 +40,67 @@
                 tools:text="Email" />
 
             <ImageView
-                android:id="@+id/profile_backbtn"
-                android:layout_width="47dp"
-                android:layout_height="38dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="6dp"
-                android:src="@drawable/backbutton" />
+                android:id="@+id/imageView8"
+                android:layout_width="48dp"
+                android:layout_height="41dp"
+                app:srcCompat="@drawable/back_button" />
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="360dp"
-            android:layout_height="match_parent"
-            android:layout_below="@id/layoutHead"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="385dp"
+            android:layout_height="528dp"
+            android:layout_below="@id/profile_backbtn"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:orientation="vertical"
             android:padding="16dp">
-
-
-            <TextView
-                android:id="@+id/text_email"
-                android:layout_width="338dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:drawablePadding="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                app:drawableLeftCompat="@drawable/email_ic"
-                android:textSize="23dp"
-                android:text="Change Profile Picture" />
-
-            <TextView
-                android:id="@+id/change_password"
-                android:layout_width="339dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:layout_marginBottom="20dp"
-                android:drawablePadding="16dp"
-                android:enabled="true"
-                android:text="Change Password"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                app:drawableLeftCompat="@drawable/password_reset" />
 
 
             <ProgressBar
                 android:id="@+id/progressbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
-                android:visibility="invisible" />
+                android:layout_marginStart="156dp"
+                android:layout_marginTop="268dp"
+                android:visibility="invisible"
+                app:flow_horizontalAlign="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_conversion_absoluteHeight="48dp"
+                tools:layout_conversion_absoluteWidth="48dp" />
 
-            <Button
-                android:id="@+id/button_save"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:background="?colorPrimary"
-                android:text="Save Changes"
+            <android.widget.Button
+                android:id="@+id/text_email"
+                android:layout_width="205dp"
+                android:layout_height="66dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/custom_button"
+                android:drawableLeft="@drawable/account_new_icon"
+                android:text="Change Profile Picture"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/white"
+                app:flow_horizontalAlign="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+            <android.widget.Button
+                android:id="@+id/change_password"
+                android:layout_width="205dp"
+                android:layout_height="66dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="148dp"
+                android:background="@drawable/custom_button"
+                android:drawableLeft="@drawable/reset_password_icon"
+                android:text="Change Password"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:flow_horizontalAlign="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
