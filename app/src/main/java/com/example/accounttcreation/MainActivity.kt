@@ -99,19 +99,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val emailText = findViewById<TextView>(R.id.MainEmail)
-        val passwordText = findViewById<TextView>(R.id.MainPassword)
-        val mainButton = findViewById<Button>(R.id.logoutButton)
-        val dataButton = findViewById<Button>(R.id.DatabaseButton)
-
-
-
-
-        emailText.text = "User ID :: $userId"
-        passwordText.text = "Email ID :: $emailId"
-
-
-
         ProvideInput.setOnClickListener {
             startActivity(Intent(this, UserInput::class.java ))
         }
@@ -125,20 +112,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SearchViewProfByNameActivity::class.java))
         }
 
-
-
-
-
-        mainButton.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-
-            startActivity(Intent(this@MainActivity, LogInActivity::class.java))
-            finish()
-        }
-
-        dataButton.setOnClickListener {
-            startActivity(Intent(this, RecycleViewDB::class.java))
-        }
 
 
 
