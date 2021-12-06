@@ -42,6 +42,7 @@ class IndividualCommentDisplay : AppCompatActivity() {
         val likeCount  = bundle?.get("likeCount")
         val dislikeCount = bundle?.get("dislikeCount")
         val docId = bundle?.get("docId")
+        val courseName = bundle?.get("courseName")
 
         var likeCountButton = likeCount as Int
         var dislikeCountButton = dislikeCount as Int
@@ -61,6 +62,7 @@ class IndividualCommentDisplay : AppCompatActivity() {
         individual_email.text = email.toString()
         like_count.text = likeCountButton.toString()
         dislike_count.text = dislikeCountButton.toString()
+        input_courseName_individual.text = courseName.toString()
         if(profilePicURL.toString().isNotEmpty()){
             Glide.with(this).load(profilePicURL).into(individual_profilePic)
         }

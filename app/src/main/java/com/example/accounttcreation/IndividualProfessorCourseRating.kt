@@ -59,6 +59,7 @@ class IndividualProfessorCourseRating : AppCompatActivity() {
                 intent.putExtra("likeCount", tempArrayList[position].likeCount)
                 intent.putExtra("dislikeCount", tempArrayList[position].dislikeCount)
                 intent.putExtra("docId", tempArrayList[position].docId)
+                intent.putExtra("courseName", tempArrayList[position].courseName)
                 startActivity(intent)
             }
         })
