@@ -1,7 +1,10 @@
 package com.example.accounttcreation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -127,6 +130,31 @@ class IndividualCommentDisplay : AppCompatActivity() {
             }
         }
 
+
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.custom_actionbar, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.home -> {
+                startActivity(Intent(this, MainActivity::class.java))
+                return true
+            }
+            R.id.input_actionBar -> {
+                startActivity(Intent(this, UserInput::class.java))
+                return true
+            }
+            R.id.input_search ->{
+                startActivity(Intent(this, DisplayUserInput::class.java))
+                return true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
 
     }
     private fun listenToLikesAndDislikes(){
