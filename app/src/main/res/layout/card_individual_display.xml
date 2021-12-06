@@ -14,7 +14,7 @@
         android:layout_height="135dp">
 
         <TextView
-            android:id="@+id/card_dislike_count"
+            android:id="@+id/individual_card_dislike_count"
             android:layout_width="20dp"
             android:layout_height="15dp"
             android:layout_marginStart="77dp"
@@ -24,9 +24,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/card_image_view_profile"
-            android:layout_width="93dp"
-            android:layout_height="85dp"
+            android:id="@+id/individual_card_image_view_profile"
+            android:layout_width="91dp"
+            android:layout_height="80dp"
             android:layout_centerInParent="true"
             android:layout_marginStart="10dp"
             android:background="@drawable/pp_fragment"
@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/card_email_profile_text"
+            android:id="@+id/individual_card_email_profile_text"
             android:layout_width="93dp"
             android:layout_height="13dp"
             android:layout_marginStart="10dp"
@@ -64,17 +64,18 @@
                 android:layout_gravity="center_vertical"
                 android:orientation="horizontal">
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/individual_card_profName_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="ANY"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                     />
 
-            <TextView
-                android:id="@+id/card_profName_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ANY"
-                android:textStyle="bold"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -91,7 +92,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/card_crn_card_display"
+                    android:id="@+id/individual_card_crn_card_display"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ANY"
@@ -127,7 +128,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/semester_card_display"
+                    android:id="@+id/individual_semester_card_display"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ANY"
@@ -172,7 +173,7 @@
             app:srcCompat="@drawable/ic_baseline_thumb_down_24" />
 
         <TextView
-            android:id="@+id/card_like_count"
+            android:id="@+id/individual_card_like_count"
             android:layout_width="20dp"
             android:layout_height="15dp"
             android:layout_marginStart="30dp"
@@ -182,7 +183,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RatingBar
-            android:id="@+id/course_rating_bar"
+            android:id="@+id/individual_course_rating_bar"
             style="@android:attr/ratingBarStyleSmall"
             android:layout_width="246dp"
             android:layout_height="51dp"
@@ -193,14 +194,14 @@
             android:numStars="5"
             android:scaleX=".5"
             android:scaleY=".5"
-            android:theme="@style/RatingBar"
             android:transformPivotX="0dp"
+            android:theme="@style/RatingBar"
             android:transformPivotY="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/ratingbar_display"
+            android:id="@+id/individual_ratingbar_display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="320dp"
