@@ -101,6 +101,16 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
                 searchText.isEnabled = true
             }
 
+            if(focusVal == 0){
+                searchText.setOnClickListener {
+                    Toast.makeText(
+                        this@SearchViewProfByNameActivity,
+                        "Start by selecting a department",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+
             ListView.layoutManager = LinearLayoutManager(this)
 
             val clickAdapter = SearchListAdapter(this, tempFacultyList)
@@ -159,6 +169,8 @@ class SearchViewProfByNameActivity : AppCompatActivity() {
             autoCompleteDepartmentDropDown.text.clear()
             itemSelected = ""
             tempFacultyList.clear()
+            searchText.isEnabled = false
+            focusVal = 0
             ListView.adapter!!.notifyDataSetChanged()
             Toast.makeText(
                 this@SearchViewProfByNameActivity,

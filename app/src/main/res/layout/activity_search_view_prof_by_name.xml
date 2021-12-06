@@ -15,9 +15,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="42dp"
         android:layout_marginTop="195dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_search_icon"
+        android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Proffessor Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ListView"
