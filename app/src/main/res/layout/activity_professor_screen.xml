@@ -132,7 +132,7 @@
                 android:layout_marginTop="296dp"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
-                android:text="see course assessments"
+                android:text="See course assessments"
                 android:background="@drawable/custom_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

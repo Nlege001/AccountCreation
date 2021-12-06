@@ -55,6 +55,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
         var likeCountButton = likeCount as Int
         var dislikeCountButton = dislikeCount as Int
         val documentId = docId as String
+        var courseRatingString = courseRating as String
 
 
 
@@ -69,6 +70,7 @@ class DisplayIndividualUserInput : AppCompatActivity() {
         like_count.text = likeCountButton.toString()
         dislike_count.text = dislikeCountButton.toString()
         input_courseName.text = courseName.toString()
+        ratingBar3.rating = courseRatingString.toFloat()
         if(profilePicURL.toString().isNotEmpty()){
             Glide.with(this).load(profilePicURL).into(inputProfilePic)
         }
