@@ -17,7 +17,7 @@
             android:id="@+id/profile_backbtn"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/purple_500">
+            android:background="@drawable/nav3">
 
 
             <de.hdodenhof.circleimageview.CircleImageView
