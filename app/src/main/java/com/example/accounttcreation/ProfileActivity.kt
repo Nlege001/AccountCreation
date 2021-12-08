@@ -46,6 +46,10 @@ class ProfileActivity : AppCompatActivity() {
             Glide.with(this).load(url).into(image_view)
         }
 
+        text_email.setOnClickListener{
+            ChangeProfilePictureDialog()
+        }
+
 
         profile_backbtn.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))

@@ -1,0 +1,50 @@
+{"Physics": [
+  {
+    "Faculty": "Physics",
+    "Name": "Adhikari, Saroj",
+    "Email": "sadhi003@plattsburgh.edu",
+    "Title": "Assistant Professor"
+  },
+  {
+    "Faculty": "Physics",
+    "Name": "Kissner, Lisabeth",
+    "Email": "kissnelm@plattsburgh.edu",
+    "Title": "Lecturer"
+  },
+  {
+    "Faculty": "Physics",
+    "Name": "Kretser, Ty",
+    "Email": "tkret001@plattsburgh.edu",
+    "Title": "Lecturer"
+  },
+  {
+    "Faculty": "Physics",
+    "Name": "Lamsal, Chiranjivi",
+    "Email": "clams001@plattsburgh.edu",
+    "Title": "Assistant Professor"
+  },
+  {
+    "Faculty": "Physics",
+    "Name": "Lee, Julie",
+    "Email": "jlee033@plattsburgh.edu",
+    "Title": "Adjunct Lecturer"
+  },
+  {
+    "Faculty": "Physics",
+    "Name": "Podolak, Ken",
+    "Email": "kpodo001@plattsburgh.edu",
+    "Title": "Associate Professor"
+  },
+  {
+    "Faculty": "Physics",
+    "Name": "Trombley, Taylor",
+    "Email": "ttrom001@plattsburgh.edu",
+    "Title": "Adjunct Instructor"
+  },
+  {
+    "Faculty": "Physics",
+    "Name": "Walters, Michael",
+    "Email": "mwalt003@plattsburgh.edu",
+    "Title": "Associate Professor/Chair"
+  }
+]}

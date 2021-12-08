@@ -1,16 +1,22 @@
 package com.example.accounttcreation
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-
+import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_profile.*
+import java.io.ByteArrayOutputStream
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -21,7 +27,7 @@ class RegisterActivity : AppCompatActivity() {
         var button = findViewById<Button>(R.id.SignUpButton)
         var email = findViewById<EditText>(R.id.RegisterEmail)
         var password = findViewById<EditText>(R.id.RegisterPassword)
-        val button2 = findViewById<Button>(R.id.login2)
+        val button2 = findViewById<TextView>(R.id.login2)
 
         button2.setOnClickListener {
             onBackPressed()
@@ -62,6 +68,14 @@ class RegisterActivity : AppCompatActivity() {
                                                 "Verification Email sent, please verify email",
                                                 Toast.LENGTH_LONG
                                             ).show()
+
+                                            // default profile picture
+                                            val bitmap = BitmapFactory.decodeResource(resources, R.drawable.profile_icon)
+                                            val baos = ByteArrayOutputStream()
+                                            val storageRef = FirebaseStorage.getInstance().reference.child("pics/${FirebaseAuth.getInstance().currentUser?.uid}")
+                                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                                            val image = baos.toByteArray()
+                                            storageRef.putBytes(image)
                                         }else{
                                             Toast.makeText(
                                                 this@RegisterActivity,
@@ -70,7 +84,6 @@ class RegisterActivity : AppCompatActivity() {
                                             ).show()
                                         }
                                     }
-
                                 val intent = Intent(this@RegisterActivity, LogInActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                 intent.putExtra("user_id", firebaseUser.uid)
@@ -86,19 +99,11 @@ class RegisterActivity : AppCompatActivity() {
                                 ).show()
                             }
                         }
-
-
-
                 }
-
-
             }
-
-
-
 
         }
 
-
     }
+
 }

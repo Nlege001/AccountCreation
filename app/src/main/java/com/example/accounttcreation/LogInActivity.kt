@@ -17,12 +17,11 @@ class LogInActivity : AppCompatActivity() {
         setContentView(R.layout.activity_log_in)
 
 
-        val button_register = findViewById<Button>(R.id.RegisterButton2)
+        val button_register = findViewById<TextView>(R.id.RegisterButton2)
         var button = findViewById<Button>(R.id.button)
         var email = findViewById<EditText>(R.id.LogInUserName)
         var password = findViewById<EditText>(R.id.LogInPassword)
-        val button2 = findViewById<Button>(R.id.login2)
-        var resetBtn = findViewById<Button>(R.id.ResetPasswordButton)
+        var resetBtn = findViewById<TextView>(R.id.ResetPasswordButton)
 
 
         resetBtn.setOnClickListener {
@@ -68,7 +67,7 @@ class LogInActivity : AppCompatActivity() {
 
                                 Toast.makeText(
                                     this@LogInActivity,
-                                    "You are Log In Successfully",
+                                    "You have Logged In Successfully",
                                     Toast.LENGTH_SHORT
                                 ).show()
 
@@ -83,7 +82,7 @@ class LogInActivity : AppCompatActivity() {
                                 // registration wasn't successful
                                 Toast.makeText(
                                     this@LogInActivity,
-                                    "Please verify email",
+                                    "Please verify your email",
                                     Toast.LENGTH_LONG
                                 ).show()
                             }

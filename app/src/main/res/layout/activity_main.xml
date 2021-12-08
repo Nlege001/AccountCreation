@@ -14,92 +14,70 @@
         app:layout_constraintEnd_toEndOf="@+id/ProvideInput"
         app:layout_constraintStart_toEndOf="@+id/ProvideInput">
 
-        <FrameLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/AssessmentView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="118dp"
-                android:layout_marginTop="178dp"
-                android:text="See Assessments" />
-        </FrameLayout>
+                android:layout_width="268dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginTop="503dp"
+                android:background="@drawable/custom_button"
+                android:drawableLeft="@drawable/search_assessment_white"
+                android:text="See Assessments"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <android.widget.Button
+                android:id="@+id/SearchProfByName"
+                android:layout_width="268dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginTop="343dp"
+                android:background="@drawable/custom_button"
+                android:drawableLeft="@drawable/search_white"
+                android:text="Search Proffessor by Name"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/ProvideInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="106dp"
-            android:layout_marginTop="119dp"
-            android:text="Provide Assessment"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <android.widget.Button
+                android:id="@+id/ProvideInput"
+                android:layout_width="268dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginTop="423dp"
+                android:background="@drawable/custom_button"
+                android:drawableLeft="@drawable/input_white"
+                android:text="Provide Assessment"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-
-        <TextView
-            android:id="@+id/MainMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="You have signed in Successfully"
-            app:layout_constraintBottom_toTopOf="@+id/MainEmail"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DatabaseButton" />
-
-
-        <TextView
-            android:id="@+id/MainEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="22dp"
-            android:text="email@email.com"
-            app:layout_constraintBottom_toTopOf="@+id/MainPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MainMessage" />
-
-        <TextView
-            android:id="@+id/MainPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="31dp"
-            android:text="abcd@1234"
-            app:layout_constraintBottom_toTopOf="@+id/logoutButton"
-            app:layout_constraintEnd_toEndOf="@+id/MainEmail"
-            app:layout_constraintTop_toBottomOf="@+id/MainEmail" />
-
-        <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="170dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="105dp"
-            android:layout_marginBottom="265dp"
-            android:text="LogOut"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MainPassword" />
-
-        <Button
-            android:id="@+id/DatabaseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="58dp"
-            android:layout_marginBottom="153dp"
-            android:text="View Database"
-            app:layout_constraintBottom_toTopOf="@+id/MainMessage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="310dp"
+                android:layout_height="246dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo_final" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

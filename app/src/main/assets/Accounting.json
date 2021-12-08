@@ -1,0 +1,58 @@
+{
+  "Accounting": [
+    {
+      "Faculty": "Accounting",
+      "Name": "Gaber, Mohamed",
+      "Email": "gabermk@plattsburgh.edu",
+      "Title": "Distinguished Serv Professor/Chair"
+    },
+    {
+      "Faculty": "Accounting",
+      "Name": "Garas, Samy",
+      "Email": "sgara002@plattsburgh.edu",
+      "Title": "Associate Professor"
+    },
+    {
+      "Faculty": "Accounting",
+      "Name": "Kaiser, Mark",
+      "Email": "kaiserme@plattsburgh.edu",
+      "Title": "Lecturer"
+    },
+    {
+      "Faculty": "Accounting",
+      "Name": "Kandiel, Hussein",
+      "Email": "kandieea@plattsburgh.edu",
+      "Title": "Associate Professor"
+    },
+    {
+      "Faculty": "Accounting",
+      "Name": "Lee, Jason",
+      "Email": "leeca@plattsburgh.edu",
+      "Title": "Distinguished Teaching Professor"
+    },
+    {
+      "Faculty": "Accounting",
+      "Name": "Naaman, Karen",
+      "Email": "knaam001@plattsburgh.edu",
+      "Title": "Lecturer"
+    },
+    {
+      "Faculty": "Accounting",
+      "Name": "Stacy, Sean",
+      "Email": "sstac002@plattsburgh.edu",
+      "Title": "Assistant Professor"
+    },
+    {
+      "Faculty": "Accounting",
+      "Name": "Steria, Dean",
+      "Email": "steriada@plattsburgh.edu",
+      "Title": "Lecturer"
+    },
+    {
+      "Faculty": "Accounting",
+      "Name": "Zhang, Chunnan",
+      "Email": "czhan006@plattsburgh.edu",
+      "Title": "Lecturer"
+    }
+  ]
+}
