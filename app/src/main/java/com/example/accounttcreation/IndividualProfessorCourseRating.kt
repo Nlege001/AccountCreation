@@ -81,7 +81,7 @@ class IndividualProfessorCourseRating : AppCompatActivity() {
                     userArrayList.forEach {
                         if (it.proffessor?.lowercase(Locale.getDefault())?.contains(proffNameProvided.lowercase()) == true) {
                             tempArrayList.add(it)
-                        }else if(it.proffessor?.lowercase(Locale.getDefault())?.contains(proffNameProvided.lowercase()) == false){
+                        }else if(tempArrayList.isEmpty()){
                             Toast.makeText(this@IndividualProfessorCourseRating, "No assessments present at this time", Toast.LENGTH_SHORT).show()
                         }
                     }
