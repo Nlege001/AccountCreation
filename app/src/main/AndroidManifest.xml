@@ -12,7 +12,8 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/SplashActivity">
+            android:theme="@style/SplashActivity"
+            android:screenOrientation="portrait">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -22,52 +23,65 @@
 
         <activity
             android:name=".IndividualCommentDisplay"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".IndividualProfessorCourseRating"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ProfessorScreen"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DisplayIndividualUserInput"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SearchViewProfByNameActivity"
             android:exported="true"
-            android:theme="@style/Theme.AccounttCreation.NoActionBar"/>
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ProfileActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
             android:label="@string/title_activity_profile"
-            android:theme="@style/Theme.AccounttCreation.NoActionBar" />
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DisplayUserInput"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".UserInput"
             android:exported="true"
-            android:theme="@style/Theme.AccounttCreation.NoActionBar"/>
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ResetPassword"
             android:exported="true"
-            android:theme="@style/Theme.AccounttCreation.NoActionBar"/>
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RecycleViewDB"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RegisterActivity"
             android:exported="true"
-            android:theme="@style/Theme.AccounttCreation.NoActionBar"/>
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LogInActivity"
             android:exported="true"
-            android:theme="@style/Theme.AccounttCreation.NoActionBar">
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
