@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:524109492021:android:87b834c74e8b39cb33e67c",
         "android_client_info": {
-          "package_name": "com.example.accounttcreation"
+          "package_name": "com.NaolLegesse.accounttcreation"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "524109492021-jilupi8j3vqfdsanl3i1h6j76e24hrfa.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.accounttcreation",
+            "package_name": "com.NaolLegesse.accounttcreation",
             "certificate_hash": "602638ab0d7393a13944791ba76073c93a931253"
           }
         },

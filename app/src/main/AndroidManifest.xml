@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.accounttcreation">
+    package="com.NaolLegesse.accounttcreation">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AccounttCreation">
         <activity
-            android:name=".SplashActivity"
+            android:name="com.NaolLegesse.accounttcreation.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashActivity"
             android:screenOrientation="portrait">
@@ -22,64 +22,64 @@
         </activity>
 
         <activity
-            android:name=".IndividualCommentDisplay"
+            android:name="com.NaolLegesse.accounttcreation.IndividualCommentDisplay"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".IndividualProfessorCourseRating"
+            android:name="com.NaolLegesse.accounttcreation.IndividualProfessorCourseRating"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ProfessorScreen"
+            android:name="com.NaolLegesse.accounttcreation.ProfessorScreen"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DisplayIndividualUserInput"
+            android:name="com.NaolLegesse.accounttcreation.DisplayIndividualUserInput"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SearchViewProfByNameActivity"
+            android:name="com.NaolLegesse.accounttcreation.SearchViewProfByNameActivity"
             android:exported="true"
             android:theme="@style/Theme.AccounttCreation.NoActionBar"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ProfileActivity"
+            android:name="com.NaolLegesse.accounttcreation.ProfileActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
             android:label="@string/title_activity_profile"
             android:theme="@style/Theme.AccounttCreation.NoActionBar"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DisplayUserInput"
+            android:name="com.NaolLegesse.accounttcreation.DisplayUserInput"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UserInput"
-            android:exported="true"
-            android:theme="@style/Theme.AccounttCreation.NoActionBar"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ResetPassword"
+            android:name="com.NaolLegesse.accounttcreation.UserInput"
             android:exported="true"
             android:theme="@style/Theme.AccounttCreation.NoActionBar"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RecycleViewDB"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".RegisterActivity"
+            android:name="com.NaolLegesse.accounttcreation.ResetPassword"
             android:exported="true"
             android:theme="@style/Theme.AccounttCreation.NoActionBar"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LogInActivity"
+            android:name="com.NaolLegesse.accounttcreation.RecycleViewDB"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.NaolLegesse.accounttcreation.RegisterActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AccounttCreation.NoActionBar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.NaolLegesse.accounttcreation.LogInActivity"
             android:exported="true"
             android:theme="@style/Theme.AccounttCreation.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.NaolLegesse.accounttcreation.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
     </application>
