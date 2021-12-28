@@ -116,7 +116,7 @@ class ProfileActivity : AppCompatActivity() {
                 storageRef.downloadUrl.addOnCompleteListener { urltask ->
                     urltask.result?.let {
                         imageUri = it
-                        Toast.makeText(this@ProfileActivity, imageUri.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ProfileActivity, "Profile Picture Set Successfully", Toast.LENGTH_SHORT).show()
                         image_view.setImageBitmap(bitmap)
                         }
                     }
